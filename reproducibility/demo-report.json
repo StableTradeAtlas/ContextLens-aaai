@@ -1,0 +1,2628 @@
+{
+  "scope": "Four curated acceptance cases; no held-out accuracy or user-study claim.",
+  "git_commit": "bce00f40334d5966460c53300ee071e245bcda30",
+  "python": "3.12.14",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "snapshot_mode": "Bundled curated place features; library snapshot counted separately.",
+  "sha256": {
+    "data/processed/shlibrary_official_snapshot.json": "831f22f6a3ad086fe7a3b731d40b705bccad1f720c04f63946b5167c85b5053b",
+    "app/place_investigation.py": "fb598cc03ddbb78b07971a1160c603cb1f95bd59d986ca9c14bf407725db2587",
+    "app/historical_maps.py": "cc105f2e6e53df8b6cdf82e0787762a04ca7ad1ee792cbf1851f1313c25563e0",
+    "package-lock.json": "1decc210926634b793488f5c1629749c808b77199aa217d72bde85b646870102"
+  },
+  "cases": [
+    {
+      "case_id": "joffre-1934",
+      "address": "霞飞路436号",
+      "era": "1934",
+      "http_status": 200,
+      "resolution": "resolved",
+      "candidates": 1,
+      "timeline_nodes": 3,
+      "evidence_cards": 4,
+      "direct_claims": 2,
+      "unique_feature_sources": 3,
+      "names": 6,
+      "result": {
+        "status": "complete",
+        "candidate": {
+          "candidate_id": "place-xiafei-road",
+          "canonical_name": "霞飞路",
+          "display_name": "霞飞路（今淮海中路一带）",
+          "historical_names": [
+            "霞飞路"
+          ],
+          "modern_names": [
+            "淮海中路"
+          ],
+          "valid_from": null,
+          "valid_to": 1943,
+          "official_uri": "https://data.library.sh.cn/entity/road/vus34wj1kewtloqv",
+          "source_uri": "https://data.library.sh.cn/entity/road/vus34wj1kewtloqv",
+          "confidence": 0.96,
+          "match_reason": "旧路名精确命中；历史事件资料中明确出现“霞飞路（今淮海中路）”。",
+          "resolution_status": "resolved",
+          "house_number": "436号",
+          "name_periods": [
+            {
+              "name": "西江路",
+              "from_year": 1901,
+              "to_year": 1906,
+              "source_uri": "https://xmwb.xinmin.cn/html/2013-09/01/content_29_3.htm"
+            },
+            {
+              "name": "宝昌路",
+              "from_year": 1906,
+              "to_year": 1915,
+              "source_uri": "https://xmwb.xinmin.cn/html/2013-09/01/content_29_3.htm"
+            },
+            {
+              "name": "霞飞路",
+              "from_year": 1915,
+              "to_year": 1943,
+              "source_uri": "https://data.library.sh.cn/entity/road/vus34wj1kewtloqv"
+            },
+            {
+              "name": "泰山路",
+              "from_year": 1943,
+              "to_year": 1945,
+              "source_uri": "https://data.library.sh.cn/entity/road/kzourann5jxemeiz"
+            },
+            {
+              "name": "林森中路",
+              "from_year": 1945,
+              "to_year": 1950,
+              "source_uri": "https://data.library.sh.cn/entity/road/611xxq4ewmzn0loo"
+            },
+            {
+              "name": "淮海中路",
+              "from_year": 1950,
+              "to_year": null,
+              "source_uri": "https://data.library.sh.cn/entity/road/m5k6iust3du2ditb"
+            }
+          ]
+        },
+        "query": {
+          "address_label": "霞飞路436号",
+          "era_hint": 1934,
+          "focus_year": 1934
+        },
+        "summary": "已围绕霞飞路（今淮海中路一带）建立 3 个时空节点和 2 条可核查主张，时间线覆盖 1927—1934 年。",
+        "finding": "1934—1950年，康健书局创办与霞飞路形成可核查的地点—事件关系。",
+        "timeline": [
+          {
+            "feature_id": "event-liuhaisu-1927",
+            "title": "刘海粟近作展览会",
+            "start_year": 1927,
+            "end_year": 1927,
+            "time_label": "1927年",
+            "type": "event",
+            "address": "霞飞路尚贤堂",
+            "source_uri": "https://data.library.sh.cn/authority/event/2xc6cvwej1sckvg5",
+            "spatial_precision": "road_approximation"
+          },
+          {
+            "feature_id": "event-kangjian-1934",
+            "title": "康健书局创办",
+            "start_year": 1934,
+            "end_year": 1950,
+            "time_label": "1934—1950年",
+            "type": "event",
+            "address": "霞飞路436号",
+            "source_uri": "https://data.library.sh.cn/authority/event/04jaae3kvaff22d1",
+            "spatial_precision": "road_approximation"
+          },
+          {
+            "feature_id": "building-guotai",
+            "title": "国泰电影院",
+            "start_year": null,
+            "end_year": null,
+            "time_label": "年代待考",
+            "type": "building",
+            "address": "淮海中路870号",
+            "source_uri": "https://data.library.sh.cn/entity/architecture/5n2kx2v82uuujr6o",
+            "spatial_precision": "source_coordinate"
+          }
+        ],
+        "feature_collection": {
+          "type": "FeatureCollection",
+          "features": [
+            {
+              "type": "Feature",
+              "id": "event-kangjian-1934",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  121.477,
+                  31.2274
+                ]
+              },
+              "properties": {
+                "feature_id": "event-kangjian-1934",
+                "feature_type": "event",
+                "title": "康健书局创办",
+                "description": "康健书局创办于1934年，设址霞飞路（今淮海中路）436号，至1950年存在。",
+                "source_uri": "https://data.library.sh.cn/authority/event/04jaae3kvaff22d1",
+                "source_title": "上海市历史文化事件知识库",
+                "start_year": 1934,
+                "end_year": 1950,
+                "spatial_precision": "road_approximation",
+                "address": "霞飞路436号",
+                "people": [],
+                "organizations": [
+                  "康健书局"
+                ],
+                "evidence_ids": [
+                  "event-kangjian-1934"
+                ],
+                "live_api": false
+              }
+            },
+            {
+              "type": "Feature",
+              "id": "building-guotai",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  121.46779,
+                  31.224125
+                ]
+              },
+              "properties": {
+                "feature_id": "building-guotai",
+                "feature_type": "building",
+                "title": "国泰电影院",
+                "description": "上海优秀历史建筑，位于淮海中路870号。",
+                "source_uri": "https://data.library.sh.cn/entity/architecture/5n2kx2v82uuujr6o",
+                "source_title": "上海优秀历史建筑",
+                "start_year": null,
+                "end_year": null,
+                "spatial_precision": "source_coordinate",
+                "address": "淮海中路870号",
+                "people": [],
+                "organizations": [
+                  "国泰电影院"
+                ],
+                "evidence_ids": [
+                  "building-guotai"
+                ],
+                "live_api": false
+              }
+            },
+            {
+              "type": "Feature",
+              "id": "event-liuhaisu-1927",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  121.4718,
+                  31.2254
+                ]
+              },
+              "properties": {
+                "feature_id": "event-liuhaisu-1927",
+                "feature_type": "event",
+                "title": "刘海粟近作展览会",
+                "description": "1927年刘海粟在霞飞路尚贤堂举办近作展览会，相关报道见《时报》和《上海画报》。",
+                "source_uri": "https://data.library.sh.cn/authority/event/2xc6cvwej1sckvg5",
+                "source_title": "上海市历史文化事件知识库",
+                "start_year": 1927,
+                "end_year": 1927,
+                "spatial_precision": "road_approximation",
+                "address": "霞飞路尚贤堂",
+                "people": [
+                  "刘海粟"
+                ],
+                "organizations": [],
+                "evidence_ids": [
+                  "event-liuhaisu-1927"
+                ],
+                "live_api": false
+              }
+            }
+          ]
+        },
+        "claims": [
+          {
+            "claim_id": "claim-8b78ea14168c",
+            "subject": "康健书局创办",
+            "predicate": "发生于",
+            "object": "霞飞路",
+            "text": "1934—1950年，康健书局创办与霞飞路形成可核查的地点—事件关系。",
+            "evidence_ids": [
+              "event-kangjian-1934"
+            ],
+            "support_level": "direct",
+            "audit_status": "passed",
+            "confidence": 0.84,
+            "start_year": 1934,
+            "end_year": 1950
+          },
+          {
+            "claim_id": "claim-81d08c5c85e1",
+            "subject": "国泰电影院",
+            "predicate": "位于",
+            "object": "霞飞路",
+            "text": "国泰电影院位于淮海中路870号，可作为该地点历史空间的实物线索。",
+            "evidence_ids": [
+              "building-guotai"
+            ],
+            "support_level": "context",
+            "audit_status": "passed",
+            "confidence": 0.7,
+            "start_year": null,
+            "end_year": null
+          },
+          {
+            "claim_id": "claim-597038f0ee40",
+            "subject": "刘海粟近作展览会",
+            "predicate": "发生于",
+            "object": "霞飞路",
+            "text": "1927年，刘海粟近作展览会与霞飞路形成可核查的地点—事件关系。",
+            "evidence_ids": [
+              "event-liuhaisu-1927"
+            ],
+            "support_level": "context",
+            "audit_status": "passed",
+            "confidence": 0.7,
+            "start_year": 1927,
+            "end_year": 1927
+          },
+          {
+            "claim_id": "claim-place-synthesis",
+            "subject": "霞飞路",
+            "predicate": "连接",
+            "object": "多个历史事件与建筑",
+            "text": "围绕霞飞路（今淮海中路一带），至少有 3 条独立来源把同一地点连接到不同年代的事件或建筑。",
+            "evidence_ids": [
+              "event-kangjian-1934",
+              "building-guotai",
+              "event-liuhaisu-1927"
+            ],
+            "support_level": "direct",
+            "audit_status": "passed",
+            "confidence": 0.855,
+            "start_year": null,
+            "end_year": null
+          }
+        ],
+        "evidence": [
+          {
+            "evidence_id": "event-kangjian-1934",
+            "title": "康健书局创办",
+            "description": "康健书局创办于1934年，设址霞飞路（今淮海中路）436号，至1950年存在。",
+            "source_title": "上海市历史文化事件知识库",
+            "source_uri": "https://data.library.sh.cn/authority/event/04jaae3kvaff22d1",
+            "address": "霞飞路436号",
+            "time_label": "1934—1950年",
+            "start_year": 1934,
+            "end_year": 1950,
+            "feature_type": "event",
+            "spatial_precision": "road_approximation",
+            "people": [],
+            "organizations": [
+              "康健书局"
+            ],
+            "claim_ids": [
+              "claim-8b78ea14168c",
+              "claim-place-synthesis"
+            ],
+            "live_api": false,
+            "provider": "上海图书馆",
+            "source_mode": "reviewed_official_snapshot",
+            "lineage": {
+              "provider": "Shanghai Library",
+              "official_uri": "https://data.library.sh.cn/authority/event/04jaae3kvaff22d1",
+              "evidence_id": "event-kangjian-1934",
+              "normalization": "ContextLens place investigation v1"
+            }
+          },
+          {
+            "evidence_id": "building-guotai",
+            "title": "国泰电影院",
+            "description": "上海优秀历史建筑，位于淮海中路870号。",
+            "source_title": "上海优秀历史建筑",
+            "source_uri": "https://data.library.sh.cn/entity/architecture/5n2kx2v82uuujr6o",
+            "address": "淮海中路870号",
+            "time_label": "年代待考",
+            "start_year": null,
+            "end_year": null,
+            "feature_type": "building",
+            "spatial_precision": "source_coordinate",
+            "people": [],
+            "organizations": [
+              "国泰电影院"
+            ],
+            "claim_ids": [
+              "claim-81d08c5c85e1",
+              "claim-place-synthesis"
+            ],
+            "live_api": false,
+            "provider": "上海图书馆",
+            "source_mode": "reviewed_official_snapshot",
+            "lineage": {
+              "provider": "Shanghai Library",
+              "official_uri": "https://data.library.sh.cn/entity/architecture/5n2kx2v82uuujr6o",
+              "evidence_id": "building-guotai",
+              "normalization": "ContextLens place investigation v1"
+            }
+          },
+          {
+            "evidence_id": "event-liuhaisu-1927",
+            "title": "刘海粟近作展览会",
+            "description": "1927年刘海粟在霞飞路尚贤堂举办近作展览会，相关报道见《时报》和《上海画报》。",
+            "source_title": "上海市历史文化事件知识库",
+            "source_uri": "https://data.library.sh.cn/authority/event/2xc6cvwej1sckvg5",
+            "address": "霞飞路尚贤堂",
+            "time_label": "1927年",
+            "start_year": 1927,
+            "end_year": 1927,
+            "feature_type": "event",
+            "spatial_precision": "road_approximation",
+            "people": [
+              "刘海粟"
+            ],
+            "organizations": [],
+            "claim_ids": [
+              "claim-597038f0ee40",
+              "claim-place-synthesis"
+            ],
+            "live_api": false,
+            "provider": "上海图书馆",
+            "source_mode": "reviewed_official_snapshot",
+            "lineage": {
+              "provider": "Shanghai Library",
+              "official_uri": "https://data.library.sh.cn/authority/event/2xc6cvwej1sckvg5",
+              "evidence_id": "event-liuhaisu-1927",
+              "normalization": "ContextLens place investigation v1"
+            }
+          },
+          {
+            "evidence_id": "road-profile-e2a5aa7a49d1",
+            "title": "霞飞路",
+            "description": "旧路名精确命中；历史事件资料中明确出现“霞飞路（今淮海中路）”。",
+            "source_title": "上海地名志·道路实体",
+            "source_uri": "https://data.library.sh.cn/entity/road/vus34wj1kewtloqv",
+            "address": "436号",
+            "time_label": "截至1943年",
+            "start_year": null,
+            "end_year": 1943,
+            "feature_type": "road_identity",
+            "spatial_precision": "not_applicable",
+            "people": [],
+            "organizations": [],
+            "claim_ids": [],
+            "live_api": false,
+            "provider": "上海图书馆",
+            "source_mode": "reviewed_official_snapshot",
+            "lineage": {
+              "provider": "Shanghai Library",
+              "official_uri": "https://data.library.sh.cn/entity/road/vus34wj1kewtloqv",
+              "evidence_id": "road-profile-e2a5aa7a49d1",
+              "normalization": "ContextLens road identity v1"
+            }
+          }
+        ],
+        "archive_network": {
+          "stats": {
+            "node_count": 7,
+            "link_count": 6,
+            "person_count": 1,
+            "organization_count": 2,
+            "event_count": 2,
+            "building_count": 1
+          },
+          "datasets": [
+            {
+              "dataset_id": "road",
+              "title": "上海地名志·道路",
+              "available_label": "1万余地名",
+              "count": 1,
+              "active": true
+            },
+            {
+              "dataset_id": "event",
+              "title": "上海历史文化事件",
+              "available_label": "1.5万余事件",
+              "count": 2,
+              "active": true
+            },
+            {
+              "dataset_id": "building",
+              "title": "上海优秀历史建筑",
+              "available_label": "1086处",
+              "count": 1,
+              "active": true
+            },
+            {
+              "dataset_id": "person",
+              "title": "人名规范库",
+              "available_label": "135万余人",
+              "count": 1,
+              "active": true
+            },
+            {
+              "dataset_id": "organization",
+              "title": "上海年华机构名录",
+              "available_label": "2.1万余机构",
+              "count": 2,
+              "active": true
+            }
+          ],
+          "nodes": [
+            {
+              "node_id": "place:place-xiafei-road",
+              "node_type": "place",
+              "name": "霞飞路（今淮海中路一带）",
+              "description": "旧路名精确命中；历史事件资料中明确出现“霞飞路（今淮海中路）”。",
+              "source_uri": "https://data.library.sh.cn/entity/road/vus34wj1kewtloqv",
+              "match_status": "resolved",
+              "evidence_ids": [
+                "road-profile-e2a5aa7a49d1"
+              ]
+            },
+            {
+              "node_id": "feature:event-kangjian-1934",
+              "node_type": "event",
+              "name": "康健书局创办",
+              "description": "康健书局创办于1934年，设址霞飞路（今淮海中路）436号，至1950年存在。",
+              "source_uri": "https://data.library.sh.cn/authority/event/04jaae3kvaff22d1",
+              "match_status": "source_record",
+              "evidence_ids": [
+                "event-kangjian-1934"
+              ]
+            },
+            {
+              "node_id": "feature:building-guotai",
+              "node_type": "building",
+              "name": "国泰电影院",
+              "description": "上海优秀历史建筑，位于淮海中路870号。",
+              "source_uri": "https://data.library.sh.cn/entity/architecture/5n2kx2v82uuujr6o",
+              "match_status": "source_record",
+              "evidence_ids": [
+                "building-guotai"
+              ]
+            },
+            {
+              "node_id": "feature:event-liuhaisu-1927",
+              "node_type": "event",
+              "name": "刘海粟近作展览会",
+              "description": "1927年刘海粟在霞飞路尚贤堂举办近作展览会，相关报道见《时报》和《上海画报》。",
+              "source_uri": "https://data.library.sh.cn/authority/event/2xc6cvwej1sckvg5",
+              "match_status": "source_record",
+              "evidence_ids": [
+                "event-liuhaisu-1927"
+              ]
+            },
+            {
+              "node_id": "person:entity-22b618dd63c8",
+              "node_type": "person",
+              "name": "刘海粟",
+              "description": "同名人物尚未完成消歧；仅确认该姓名出现在相关来源中。",
+              "speciality": "",
+              "lifespan": "生卒年待考",
+              "source_uri": "",
+              "match_status": "relation_only",
+              "candidate_count": 0,
+              "evidence_ids": [
+                "event-liuhaisu-1927"
+              ]
+            },
+            {
+              "node_id": "organization:entity-75890eb7ab7e",
+              "node_type": "organization",
+              "name": "康健书局",
+              "description": "机构名称来自相关事件或建筑记录。",
+              "source_uri": "",
+              "match_status": "relation_only",
+              "candidate_count": 0,
+              "evidence_ids": [
+                "event-kangjian-1934"
+              ]
+            },
+            {
+              "node_id": "organization:entity-f949c74d27ce",
+              "node_type": "organization",
+              "name": "国泰电影院",
+              "description": "机构名称来自相关事件或建筑记录。",
+              "source_uri": "",
+              "match_status": "relation_only",
+              "candidate_count": 0,
+              "evidence_ids": [
+                "building-guotai"
+              ]
+            }
+          ],
+          "links": [
+            {
+              "source": "place:place-xiafei-road",
+              "target": "feature:event-kangjian-1934",
+              "relation": "发生于",
+              "evidence_ids": [
+                "event-kangjian-1934"
+              ]
+            },
+            {
+              "source": "place:place-xiafei-road",
+              "target": "feature:building-guotai",
+              "relation": "位于",
+              "evidence_ids": [
+                "building-guotai"
+              ]
+            },
+            {
+              "source": "place:place-xiafei-road",
+              "target": "feature:event-liuhaisu-1927",
+              "relation": "发生于",
+              "evidence_ids": [
+                "event-liuhaisu-1927"
+              ]
+            },
+            {
+              "source": "feature:event-liuhaisu-1927",
+              "target": "person:entity-22b618dd63c8",
+              "relation": "相关人物",
+              "evidence_ids": [
+                "event-liuhaisu-1927"
+              ]
+            },
+            {
+              "source": "feature:event-kangjian-1934",
+              "target": "organization:entity-75890eb7ab7e",
+              "relation": "相关机构",
+              "evidence_ids": [
+                "event-kangjian-1934"
+              ]
+            },
+            {
+              "source": "feature:building-guotai",
+              "target": "organization:entity-f949c74d27ce",
+              "relation": "相关机构",
+              "evidence_ids": [
+                "building-guotai"
+              ]
+            }
+          ],
+          "people": [
+            {
+              "node_id": "person:entity-22b618dd63c8",
+              "node_type": "person",
+              "name": "刘海粟",
+              "description": "同名人物尚未完成消歧；仅确认该姓名出现在相关来源中。",
+              "speciality": "",
+              "lifespan": "生卒年待考",
+              "source_uri": "",
+              "match_status": "relation_only",
+              "candidate_count": 0,
+              "evidence_ids": [
+                "event-liuhaisu-1927"
+              ]
+            }
+          ],
+          "organizations": [
+            {
+              "node_id": "organization:entity-75890eb7ab7e",
+              "node_type": "organization",
+              "name": "康健书局",
+              "description": "机构名称来自相关事件或建筑记录。",
+              "source_uri": "",
+              "match_status": "relation_only",
+              "candidate_count": 0,
+              "evidence_ids": [
+                "event-kangjian-1934"
+              ]
+            },
+            {
+              "node_id": "organization:entity-f949c74d27ce",
+              "node_type": "organization",
+              "name": "国泰电影院",
+              "description": "机构名称来自相关事件或建筑记录。",
+              "source_uri": "",
+              "match_status": "relation_only",
+              "candidate_count": 0,
+              "evidence_ids": [
+                "building-guotai"
+              ]
+            }
+          ]
+        },
+        "map": {
+          "bounds": [
+            121.46779,
+            31.224125,
+            121.477,
+            31.2274
+          ],
+          "center": [
+            121.47219666666666,
+            31.225641666666665
+          ],
+          "remote_style": "https://tiles.openfreemap.org/styles/liberty",
+          "historical_style": "https://www.openhistoricalmap.org/map-styles/main/main.json",
+          "fallback_available": true,
+          "time": {
+            "selected_year": 1934,
+            "min_year": 1600,
+            "max_year": 2026,
+            "dynamic_layer": {
+              "title": "OpenHistoricalMap 历史矢量层",
+              "style_url": "https://www.openhistoricalmap.org/map-styles/main/main.json",
+              "source_url": "https://www.openhistoricalmap.org/",
+              "license": "CC0；个别要素可能另有署名要求",
+              "coverage_note": "按任意年份过滤；上海细节覆盖随年代和社区录入程度变化。"
+            },
+            "active_era": {
+              "from_year": 1927,
+              "to_year": 1948,
+              "label": "都市文化与战时重组",
+              "note": "商业、出版、文化机构与战争空间并存。"
+            },
+            "era_guide": [
+              {
+                "from_year": 1600,
+                "to_year": 1842,
+                "label": "县城与水网",
+                "note": "可从县城图和早期河道、城厢材料理解开埠前空间。"
+              },
+              {
+                "from_year": 1843,
+                "to_year": 1899,
+                "label": "开埠与租界扩展",
+                "note": "租界、码头和新道路逐步改变城厢边界。"
+              },
+              {
+                "from_year": 1900,
+                "to_year": 1926,
+                "label": "近代市政成形",
+                "note": "道路、电车、公共设施与分区地图迅速增多。"
+              },
+              {
+                "from_year": 1927,
+                "to_year": 1948,
+                "label": "都市文化与战时重组",
+                "note": "商业、出版、文化机构与战争空间并存。"
+              },
+              {
+                "from_year": 1949,
+                "to_year": 1978,
+                "label": "道路更名与城市建设",
+                "note": "道路名称、机构功能和城市治理体系发生变化。"
+              },
+              {
+                "from_year": 1979,
+                "to_year": 1989,
+                "label": "改革开放初期",
+                "note": "旅游图与交通图记录城市重新连接世界。"
+              },
+              {
+                "from_year": 1990,
+                "to_year": 2009,
+                "label": "浦东开发与快速扩张",
+                "note": "新区规划、轨道交通和跨江发展成为主线。"
+              },
+              {
+                "from_year": 2010,
+                "to_year": 2026,
+                "label": "更新与历史保护",
+                "note": "当代底图用于定位，历史建筑与旧址仍需回到来源复核。"
+              }
+            ],
+            "nearest_maps": [
+              {
+                "map_id": "vs-100",
+                "year": 1934,
+                "title": "法租界地图",
+                "provider": "Virtual Shanghai",
+                "scope": "法租界",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=100",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false,
+                "distance": 0
+              },
+              {
+                "map_id": "vs-242",
+                "year": 1932,
+                "title": "上海市街图",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=242",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false,
+                "distance": 2
+              },
+              {
+                "map_id": "vs-230",
+                "year": 1939,
+                "title": "上海电车线路图",
+                "provider": "Virtual Shanghai",
+                "scope": "城市交通",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=230",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false,
+                "distance": 5
+              },
+              {
+                "map_id": "vs-272",
+                "year": 1926,
+                "title": "公共租界中央区与法租界街道图",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=272",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false,
+                "distance": 8
+              }
+            ],
+            "catalog": [
+              {
+                "map_id": "vs-754",
+                "year": 1810,
+                "title": "上海县城图（约1800—1820）",
+                "provider": "Virtual Shanghai",
+                "scope": "上海县城",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=754",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-30",
+                "year": 1855,
+                "title": "上海英租界地面图",
+                "provider": "Virtual Shanghai",
+                "scope": "英租界",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=30",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-345",
+                "year": 1862,
+                "title": "City and Environs of Shanghai",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=345",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-344",
+                "year": 1875,
+                "title": "上海县城厢租界全图",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=344",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-261",
+                "year": 1884,
+                "title": "上海县城厢租界全图",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=261",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-76",
+                "year": 1904,
+                "title": "Plan of Shanghai",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=76",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-260",
+                "year": 1910,
+                "title": "实测上海城厢租界图",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=260",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-72",
+                "year": 1918,
+                "title": "Map of Shanghai",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=72",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-272",
+                "year": 1926,
+                "title": "公共租界中央区与法租界街道图",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=272",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-242",
+                "year": 1932,
+                "title": "上海市街图",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=242",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-100",
+                "year": 1934,
+                "title": "法租界地图",
+                "provider": "Virtual Shanghai",
+                "scope": "法租界",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=100",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-230",
+                "year": 1939,
+                "title": "上海电车线路图",
+                "provider": "Virtual Shanghai",
+                "scope": "城市交通",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=230",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "princeton-1943",
+                "year": 1943,
+                "title": "Plan of Shanghai · Sheet 1",
+                "provider": "Princeton University / AGSL",
+                "scope": "上海城市",
+                "kind": "公共 IIIF 地图",
+                "access": "public_iiif",
+                "source_url": "https://geodiscovery.uwm.edu/catalog/princeton-8623j0184",
+                "terms_url": "https://geodiscovery.uwm.edu/catalog/princeton-8623j0184",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-341",
+                "year": 1946,
+                "title": "上海市街道详图",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=341",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-249",
+                "year": 1956,
+                "title": "上海市市区图",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=249",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-84",
+                "year": 1972,
+                "title": "Shanghai Area",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=84",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-733",
+                "year": 1987,
+                "title": "上海通用版最新旅游图",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=733",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-734",
+                "year": 1994,
+                "title": "浦东新区陆家嘴金融贸易区示意图",
+                "provider": "Virtual Shanghai",
+                "scope": "浦东",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=734",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-262",
+                "year": 2003,
+                "title": "上海城区图",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=262",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-735",
+                "year": 2005,
+                "title": "上海城区交通图",
+                "provider": "Virtual Shanghai",
+                "scope": "城市交通",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=735",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              }
+            ],
+            "catalog_source": "https://www.virtualshanghai.net/Maps/Source?rp=900",
+            "catalog_terms": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+            "landmark_models": [
+              {
+                "model_id": "customs-house",
+                "year": 1927,
+                "title": "外滩海关大楼",
+                "model_type": "clock-tower",
+                "height_m": null,
+                "source_url": "https://www.shanghai.gov.cn/gwk/search/content/42925f1923764d98bfa7198785e56512",
+                "note": "依据公开建成年代制作的概念体量，不是测绘级复原。"
+              },
+              {
+                "model_id": "peace-hotel",
+                "year": 1929,
+                "title": "沙逊大厦 / 和平饭店北楼",
+                "model_type": "pyramid-roof",
+                "height_m": 77,
+                "source_url": "https://www.shanghai.gov.cn/nw5827/20200905/0001-5827_632318.html",
+                "note": "体量突出金字塔形屋顶；不替代建筑测绘资料。"
+              },
+              {
+                "model_id": "oriental-pearl",
+                "year": 1994,
+                "title": "东方明珠",
+                "model_type": "pearl-tower",
+                "height_m": 468,
+                "source_url": "https://english.shanghai.gov.cn/en-Latest-WhatsNew/20240930/57966196af434811aec2d86ba75fc7a6.html",
+                "note": "以球体和塔身表达轮廓的概念模型。"
+              },
+              {
+                "model_id": "jinmao",
+                "year": 1998,
+                "title": "金茂大厦",
+                "model_type": "tiered-tower",
+                "height_m": 420.5,
+                "source_url": "https://en.shanghaitower.com/news_2/34.html",
+                "note": "以逐级收分表达轮廓的概念模型。"
+              },
+              {
+                "model_id": "swfc",
+                "year": 2008,
+                "title": "上海环球金融中心",
+                "model_type": "portal-tower",
+                "height_m": 492,
+                "source_url": "https://en.shanghaitower.com/news_2/34.html",
+                "note": "以顶部开口表达轮廓的概念模型。"
+              },
+              {
+                "model_id": "shanghai-tower",
+                "year": 2014,
+                "title": "上海中心大厦",
+                "model_type": "twist-tower",
+                "height_m": 632,
+                "source_url": "https://www.shanghaitower.com/ProjectIntroduction.html",
+                "note": "以旋转收分表达轮廓的概念模型；2014年底土建竣工。"
+              }
+            ]
+          }
+        },
+        "experience": {
+          "flagship": true,
+          "default_duration_seconds": 20,
+          "duration_options": [
+            20,
+            30,
+            45
+          ],
+          "chapters": [
+            {
+              "chapter_id": "arrival",
+              "year": 2026,
+              "title": "从今天返回旧址",
+              "title_en": "Return to the old address",
+              "caption": "城市的过去没有消失，它仍藏在道路、建筑与人的记忆里。",
+              "caption_en": "The city's past remains in its streets, buildings and memories.",
+              "duration_ms": 4000,
+              "center": [
+                121.4737,
+                31.2231
+              ],
+              "zoom": 11.7,
+              "pitch": 52,
+              "bearing": -18,
+              "active_layers": [
+                "modern",
+                "landmarks"
+              ],
+              "evidence_ids": [
+                "map-modern"
+              ],
+              "branch": "main"
+            },
+            {
+              "chapter_id": "road-born",
+              "year": 1915,
+              "title": "一条路经历三个名字",
+              "title_en": "A road takes three names",
+              "caption": "1901年至1915年，这里从西江路、宝昌路走向霞飞路。",
+              "caption_en": "From 1901 to 1915, West River Road became Route Paul Brunat and then Avenue Joffre.",
+              "duration_ms": 7000,
+              "center": [
+                121.4669,
+                31.217
+              ],
+              "zoom": 14.1,
+              "pitch": 22,
+              "bearing": -8,
+              "active_layers": [
+                "historical",
+                "roads"
+              ],
+              "evidence_ids": [
+                "road-identity"
+              ],
+              "branch": "main"
+            },
+            {
+              "chapter_id": "archive-map",
+              "year": 1943,
+              "title": "原图落回城市",
+              "title_en": "The archival map returns",
+              "caption": "这幅原图尚有配准误差；它帮助辨认街道结构，但不制造精确门牌。",
+              "caption_en": "This scan carries registration error: useful for street structure, not a precise doorstep.",
+              "duration_ms": 8000,
+              "center": [
+                121.4669,
+                31.217
+              ],
+              "zoom": 15.1,
+              "pitch": 0,
+              "bearing": 0,
+              "active_layers": [
+                "historical",
+                "archive"
+              ],
+              "evidence_ids": [
+                "map-princeton-1943"
+              ],
+              "branch": "main"
+            },
+            {
+              "chapter_id": "kangjian",
+              "year": 1934,
+              "title": "霞飞路436号亮起一盏灯",
+              "title_en": "A light at 436 Avenue Joffre",
+              "caption": "1934年，康健书局在霞飞路436号创办；这条事实可以回到上海图书馆事件数据复核。",
+              "caption_en": "In 1934, Kangjian Bookstore opened at 436 Avenue Joffre, supported by the library event record.",
+              "duration_ms": 10000,
+              "center": [
+                121.4669,
+                31.217
+              ],
+              "zoom": 16.0,
+              "pitch": 42,
+              "bearing": -12,
+              "active_layers": [
+                "historical",
+                "events",
+                "landmarks"
+              ],
+              "evidence_ids": [
+                "event-kangjian-1934"
+              ],
+              "branch": "main"
+            },
+            {
+              "chapter_id": "renaming",
+              "year": 1944,
+              "title": "同一条路继续改名",
+              "title_en": "One road, changing names",
+              "caption": "霞飞路随后成为泰山路、林森中路，并在1950年定名淮海中路。",
+              "caption_en": "Avenue Joffre became Taishan Road, Linsen Middle Road, then Huaihai Middle Road in 1950.",
+              "duration_ms": 9000,
+              "center": [
+                121.4669,
+                31.217
+              ],
+              "zoom": 14.6,
+              "pitch": 30,
+              "bearing": 8,
+              "active_layers": [
+                "historical",
+                "roads"
+              ],
+              "evidence_ids": [
+                "road-identity"
+              ],
+              "branch": "main"
+            },
+            {
+              "chapter_id": "return",
+              "year": 2026,
+              "title": "把记忆带回今天",
+              "title_en": "Bring the memory home",
+              "caption": "现代三维城市只负责定位；历史结论仍然由来源、时间和不确定性共同限定。",
+              "caption_en": "The modern 3D city locates the place; sources and uncertainty still bound every historical claim.",
+              "duration_ms": 7000,
+              "center": [
+                121.4737,
+                31.2231
+              ],
+              "zoom": 12.8,
+              "pitch": 55,
+              "bearing": -20,
+              "active_layers": [
+                "modern",
+                "landmarks",
+                "evidence"
+              ],
+              "evidence_ids": [
+                "map-modern"
+              ],
+              "branch": "main"
+            }
+          ],
+          "historical_maps": [
+            {
+              "map_id": "commons-1855",
+              "year": 1855,
+              "title": "上海租界图（1855，叠加1910街道）",
+              "source_url": "https://commons.wikimedia.org/wiki/File:Map_Shanghai_1855.jpg",
+              "provider": "Wikimedia Commons",
+              "license": "Public Domain Mark",
+              "attribution": "Unknown author / Wikimedia Commons",
+              "overlay_status": "side_by_side",
+              "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Map Shanghai 1855.jpg?width=1400",
+              "iiif_manifest_url": "",
+              "annotation_url": "",
+              "bounds": [],
+              "rms_error_m": null,
+              "error_threshold_m": null
+            },
+            {
+              "map_id": "commons-1916",
+              "year": 1916,
+              "title": "Shanghai around 1910（1916年出版）",
+              "source_url": "https://commons.wikimedia.org/wiki/File:Shanghai_ca_1910.JPG",
+              "provider": "Nordisk familjebok / Wikimedia Commons",
+              "license": "Public domain",
+              "attribution": "Nordisk familjebok / Wikimedia Commons",
+              "overlay_status": "side_by_side",
+              "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shanghai ca 1910.JPG?width=1400",
+              "iiif_manifest_url": "",
+              "annotation_url": "",
+              "bounds": [],
+              "rms_error_m": null,
+              "error_threshold_m": null
+            },
+            {
+              "map_id": "princeton-1943",
+              "year": 1943,
+              "title": "Plan of Shanghai · Sheet 1",
+              "source_url": "https://geodiscovery.uwm.edu/catalog/princeton-8623j0184",
+              "provider": "Princeton University Library / AGSL",
+              "license": "Public content; rights status NKC",
+              "attribution": "Army Map Service / Princeton University Library",
+              "overlay_status": "review_only",
+              "image_url": "https://iiif-cloud.princeton.edu/iiif/2/42%2F8a%2F93%2F428a930342fb4c36ae9b4ecdc57eae37%2Fintermediate_file/full/1600,/0/default.jpg",
+              "iiif_manifest_url": "https://figgy.princeton.edu/concern/scanned_maps/9691c7cc-726c-4a44-9f77-0a9867178fb8/manifest",
+              "annotation_url": "/assets/data/princeton-1943-georef.json",
+              "bounds": [],
+              "rms_error_m": null,
+              "error_threshold_m": null
+            },
+            {
+              "map_id": "commons-1954",
+              "year": 1954,
+              "title": "Shanghai Map 1954",
+              "source_url": "https://commons.wikimedia.org/wiki/File:Shanghai_Map_1954.jpg",
+              "provider": "US Army Corps of Engineers / Wikimedia Commons",
+              "license": "Public domain (US federal work)",
+              "attribution": "US Army Corps of Engineers / Wikimedia Commons",
+              "overlay_status": "side_by_side",
+              "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shanghai Map 1954.jpg?width=1600",
+              "iiif_manifest_url": "",
+              "annotation_url": "",
+              "bounds": [],
+              "rms_error_m": null,
+              "error_threshold_m": null
+            }
+          ],
+          "landmark_scenes": [
+            {
+              "model_id": "xiafei-block",
+              "title": "霞飞路街廓体量",
+              "title_en": "Avenue Joffre block massing",
+              "longitude": 121.4669,
+              "latitude": 31.217,
+              "start_year": 1934,
+              "end_year": null,
+              "height_m": 24,
+              "width_m": 86,
+              "depth_m": 22,
+              "model_type": "archive-block",
+              "reconstruction_level": "C",
+              "reconstruction_note": "门牌位置为道路范围定位；仅表达街廓相对体量。",
+              "source_uri": "https://data.library.sh.cn/authority/event/04jaae3kvaff22d1",
+              "evidence_ids": []
+            },
+            {
+              "model_id": "customs-house",
+              "title": "外滩海关大楼",
+              "title_en": "Customs House",
+              "longitude": 121.4903,
+              "latitude": 31.2398,
+              "start_year": 1927,
+              "end_year": null,
+              "height_m": 90,
+              "width_m": 34,
+              "depth_m": 44,
+              "model_type": "clock-tower",
+              "reconstruction_level": "C",
+              "reconstruction_note": "坐标和建成年代可核验；展示高度为相对体量。",
+              "source_uri": "https://www.shanghai.gov.cn/gwk/search/content/42925f1923764d98bfa7198785e56512",
+              "evidence_ids": []
+            },
+            {
+              "model_id": "peace-hotel",
+              "title": "和平饭店北楼",
+              "title_en": "Peace Hotel North Building",
+              "longitude": 121.4906,
+              "latitude": 31.2409,
+              "start_year": 1929,
+              "end_year": null,
+              "height_m": 77,
+              "width_m": 42,
+              "depth_m": 34,
+              "model_type": "pyramid-roof",
+              "reconstruction_level": "B",
+              "reconstruction_note": "坐标、建成年代与77米高度可核验；立面细节未复原。",
+              "source_uri": "https://www.shanghai.gov.cn/nw5827/20200905/0001-5827_632318.html",
+              "evidence_ids": []
+            },
+            {
+              "model_id": "oriental-pearl",
+              "title": "东方明珠",
+              "title_en": "Oriental Pearl Tower",
+              "longitude": 121.4953,
+              "latitude": 31.2417,
+              "start_year": 1994,
+              "end_year": null,
+              "height_m": 468,
+              "width_m": 24,
+              "depth_m": 24,
+              "model_type": "pearl-tower",
+              "reconstruction_level": "A",
+              "reconstruction_note": "位置、建成年代与468米高度采用官方资料。",
+              "source_uri": "https://english.shanghai.gov.cn/en-Latest-WhatsNew/20240930/57966196af434811aec2d86ba75fc7a6.html",
+              "evidence_ids": []
+            },
+            {
+              "model_id": "jinmao",
+              "title": "金茂大厦",
+              "title_en": "Jin Mao Tower",
+              "longitude": 121.5056,
+              "latitude": 31.2353,
+              "start_year": 1998,
+              "end_year": null,
+              "height_m": 420.5,
+              "width_m": 46,
+              "depth_m": 46,
+              "model_type": "tiered-tower",
+              "reconstruction_level": "A",
+              "reconstruction_note": "位置、年份与高度可核验，模型为简化轮廓。",
+              "source_uri": "https://en.shanghaitower.com/news_2/34.html",
+              "evidence_ids": []
+            },
+            {
+              "model_id": "swfc",
+              "title": "上海环球金融中心",
+              "title_en": "Shanghai World Financial Center",
+              "longitude": 121.5074,
+              "latitude": 31.2346,
+              "start_year": 2008,
+              "end_year": null,
+              "height_m": 492,
+              "width_m": 48,
+              "depth_m": 48,
+              "model_type": "portal-tower",
+              "reconstruction_level": "A",
+              "reconstruction_note": "位置、年份与高度可核验，模型为简化轮廓。",
+              "source_uri": "https://en.shanghaitower.com/news_2/34.html",
+              "evidence_ids": []
+            },
+            {
+              "model_id": "shanghai-tower",
+              "title": "上海中心大厦",
+              "title_en": "Shanghai Tower",
+              "longitude": 121.5011,
+              "latitude": 31.2336,
+              "start_year": 2014,
+              "end_year": null,
+              "height_m": 632,
+              "width_m": 58,
+              "depth_m": 58,
+              "model_type": "twist-tower",
+              "reconstruction_level": "A",
+              "reconstruction_note": "位置与632米高度采用官方资料；模型仅表达旋转收分。",
+              "source_uri": "https://www.shanghaitower.com/ProjectIntroduction.html",
+              "evidence_ids": []
+            }
+          ],
+          "interactions": [
+            {
+              "interaction_id": "find-joffre",
+              "interaction_type": "map_hotspot",
+              "title": "在原图中找到霞飞路",
+              "title_en": "Find Avenue Joffre",
+              "prompt": "点击你认为霞飞路经过的位置；需要时可查看提示。",
+              "prompt_en": "Select where you think Avenue Joffre ran. Ask for a hint whenever you need it.",
+              "evidence_ids": [
+                "map-princeton-1943",
+                "road-identity"
+              ],
+              "payload": {
+                "target_percent": [
+                  42,
+                  63
+                ],
+                "radius_percent": 12,
+                "hint_after_ms": 6000
+              },
+              "stamp_id": "road-finder"
+            },
+            {
+              "interaction_id": "road-relay",
+              "interaction_type": "ordered_names",
+              "title": "地名接力",
+              "title_en": "Road-name relay",
+              "prompt": "按时间把六个道路名称排成一条连续历史。",
+              "prompt_en": "Arrange the six road names into one continuous history.",
+              "evidence_ids": [
+                "road-identity"
+              ],
+              "payload": {
+                "items": [
+                  "西江路",
+                  "宝昌路",
+                  "霞飞路",
+                  "泰山路",
+                  "林森中路",
+                  "淮海中路"
+                ]
+              },
+              "stamp_id": "name-relay"
+            },
+            {
+              "interaction_id": "source-trail",
+              "interaction_type": "source_count",
+              "title": "打开三条来源",
+              "title_en": "Open three sources",
+              "prompt": "沿证据抽屉打开三条不同来源。",
+              "prompt_en": "Open three distinct records from the evidence drawer.",
+              "evidence_ids": [
+                "road-identity",
+                "kangjian",
+                "map-princeton-1943"
+              ],
+              "payload": {
+                "required": 3
+              },
+              "stamp_id": "source-trail"
+            }
+          ],
+          "comparison": {
+            "year_a": 1934,
+            "year_b": 2026,
+            "anchors": [
+              1855,
+              1901,
+              1915,
+              1934,
+              1944,
+              1950,
+              1994,
+              2026
+            ]
+          },
+          "privacy": {
+            "memory_uploaded": false,
+            "memory_in_url": false,
+            "stamps_storage": "sessionStorage"
+          }
+        },
+        "quality": {
+          "resolved": true,
+          "direct_claim_count": 2,
+          "source_count": 3,
+          "archive_dataset_count": 5,
+          "person_count": 1,
+          "organization_count": 2,
+          "live_feature_count": 0,
+          "fallback_feature_count": 3,
+          "uncertainty": "review",
+          "warnings": []
+        },
+        "replay": [
+          {
+            "stage": "resolving",
+            "label": "地址解析",
+            "detail": "识别地点：霞飞路（今淮海中路一带）"
+          },
+          {
+            "stage": "fetching",
+            "label": "上图多库搜索",
+            "detail": "检索道路、事件、建筑、人物与机构，共保留 3 条时空特征"
+          },
+          {
+            "stage": "linking",
+            "label": "时空关联",
+            "detail": "按旧今名称、年代和空间精度建立关联"
+          },
+          {
+            "stage": "auditing",
+            "label": "证据审计",
+            "detail": "形成 2 条直接主张，其余保持背景或待考"
+          }
+        ],
+        "generated_at": "2026-09-12T06:42:19.975440+00:00",
+        "deployment_mode": "stateless_bundled_evidence"
+      },
+      "elapsed_ms": 1.541
+    },
+    {
+      "case_id": "bund-1930s",
+      "address": "外滩20号",
+      "era": "1930年代",
+      "http_status": 200,
+      "resolution": "resolved",
+      "candidates": 1,
+      "timeline_nodes": 2,
+      "evidence_cards": 2,
+      "direct_claims": 2,
+      "unique_feature_sources": 2,
+      "names": 0,
+      "result": {
+        "status": "complete",
+        "candidate": {
+          "candidate_id": "place-bund",
+          "canonical_name": "外滩",
+          "display_name": "外滩 · 中山东一路沿线",
+          "historical_names": [
+            "外滩"
+          ],
+          "modern_names": [
+            "中山东一路"
+          ],
+          "valid_from": null,
+          "valid_to": null,
+          "official_uri": "",
+          "source_uri": "",
+          "confidence": 0.94,
+          "match_reason": "公共历史地标精确命中。",
+          "resolution_status": "resolved",
+          "house_number": "20号",
+          "name_periods": []
+        },
+        "query": {
+          "address_label": "外滩20号",
+          "era_hint": 1930,
+          "focus_year": 1929
+        },
+        "summary": "已围绕外滩 · 中山东一路沿线建立 2 个时空节点和 2 条可核查主张，时间线覆盖 1929—1929 年。",
+        "finding": "和平饭店北楼位于中山东一路20号，可作为该地点历史空间的实物线索。",
+        "timeline": [
+          {
+            "feature_id": "building-peace-hotel",
+            "title": "和平饭店北楼",
+            "start_year": 1929,
+            "end_year": null,
+            "time_label": "1929年",
+            "type": "building",
+            "address": "中山东一路20号",
+            "source_uri": "https://data.library.sh.cn/entity/architecture/2iloklca2gojo53e",
+            "spatial_precision": "source_coordinate"
+          },
+          {
+            "feature_id": "building-bund-observatory",
+            "title": "外滩天文台",
+            "start_year": null,
+            "end_year": null,
+            "time_label": "年代待考",
+            "type": "building",
+            "address": "中山东二路1号甲",
+            "source_uri": "https://data.library.sh.cn/entity/architecture/7cy7p8b8w6ufxvbe",
+            "spatial_precision": "source_coordinate"
+          }
+        ],
+        "feature_collection": {
+          "type": "FeatureCollection",
+          "features": [
+            {
+              "type": "Feature",
+              "id": "building-peace-hotel",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  121.49633,
+                  31.244972
+                ]
+              },
+              "properties": {
+                "feature_id": "building-peace-hotel",
+                "feature_type": "building",
+                "title": "和平饭店北楼",
+                "description": "北楼建于1929年，原名华懋饭店，位于中山东一路20号。",
+                "source_uri": "https://data.library.sh.cn/entity/architecture/2iloklca2gojo53e",
+                "source_title": "上海优秀历史建筑",
+                "start_year": 1929,
+                "end_year": null,
+                "spatial_precision": "source_coordinate",
+                "address": "中山东一路20号",
+                "people": [],
+                "organizations": [],
+                "evidence_ids": [
+                  "building-peace-hotel"
+                ],
+                "live_api": false
+              }
+            },
+            {
+              "type": "Feature",
+              "id": "building-bund-observatory",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  121.49901,
+                  31.238583
+                ]
+              },
+              "properties": {
+                "feature_id": "building-bund-observatory",
+                "feature_type": "building",
+                "title": "外滩天文台",
+                "description": "外滩历史陈列室与外滩天文台，位于中山东二路1号甲。",
+                "source_uri": "https://data.library.sh.cn/entity/architecture/7cy7p8b8w6ufxvbe",
+                "source_title": "上海优秀历史建筑",
+                "start_year": null,
+                "end_year": null,
+                "spatial_precision": "source_coordinate",
+                "address": "中山东二路1号甲",
+                "people": [],
+                "organizations": [],
+                "evidence_ids": [
+                  "building-bund-observatory"
+                ],
+                "live_api": false
+              }
+            }
+          ]
+        },
+        "claims": [
+          {
+            "claim_id": "claim-f6d192994d85",
+            "subject": "和平饭店北楼",
+            "predicate": "位于",
+            "object": "外滩",
+            "text": "和平饭店北楼位于中山东一路20号，可作为该地点历史空间的实物线索。",
+            "evidence_ids": [
+              "building-peace-hotel"
+            ],
+            "support_level": "direct",
+            "audit_status": "passed",
+            "confidence": 0.84,
+            "start_year": 1929,
+            "end_year": null
+          },
+          {
+            "claim_id": "claim-f28a20a95616",
+            "subject": "外滩天文台",
+            "predicate": "位于",
+            "object": "外滩",
+            "text": "外滩天文台位于中山东二路1号甲，可作为该地点历史空间的实物线索。",
+            "evidence_ids": [
+              "building-bund-observatory"
+            ],
+            "support_level": "context",
+            "audit_status": "passed",
+            "confidence": 0.7,
+            "start_year": null,
+            "end_year": null
+          },
+          {
+            "claim_id": "claim-place-synthesis",
+            "subject": "外滩",
+            "predicate": "连接",
+            "object": "多个历史事件与建筑",
+            "text": "围绕外滩 · 中山东一路沿线，至少有 2 条独立来源把同一地点连接到不同年代的事件或建筑。",
+            "evidence_ids": [
+              "building-peace-hotel",
+              "building-bund-observatory"
+            ],
+            "support_level": "direct",
+            "audit_status": "passed",
+            "confidence": 0.8300000000000001,
+            "start_year": null,
+            "end_year": null
+          }
+        ],
+        "evidence": [
+          {
+            "evidence_id": "building-peace-hotel",
+            "title": "和平饭店北楼",
+            "description": "北楼建于1929年，原名华懋饭店，位于中山东一路20号。",
+            "source_title": "上海优秀历史建筑",
+            "source_uri": "https://data.library.sh.cn/entity/architecture/2iloklca2gojo53e",
+            "address": "中山东一路20号",
+            "time_label": "1929年",
+            "start_year": 1929,
+            "end_year": null,
+            "feature_type": "building",
+            "spatial_precision": "source_coordinate",
+            "people": [],
+            "organizations": [],
+            "claim_ids": [
+              "claim-f6d192994d85",
+              "claim-place-synthesis"
+            ],
+            "live_api": false,
+            "provider": "上海图书馆",
+            "source_mode": "reviewed_official_snapshot",
+            "lineage": {
+              "provider": "Shanghai Library",
+              "official_uri": "https://data.library.sh.cn/entity/architecture/2iloklca2gojo53e",
+              "evidence_id": "building-peace-hotel",
+              "normalization": "ContextLens place investigation v1"
+            }
+          },
+          {
+            "evidence_id": "building-bund-observatory",
+            "title": "外滩天文台",
+            "description": "外滩历史陈列室与外滩天文台，位于中山东二路1号甲。",
+            "source_title": "上海优秀历史建筑",
+            "source_uri": "https://data.library.sh.cn/entity/architecture/7cy7p8b8w6ufxvbe",
+            "address": "中山东二路1号甲",
+            "time_label": "年代待考",
+            "start_year": null,
+            "end_year": null,
+            "feature_type": "building",
+            "spatial_precision": "source_coordinate",
+            "people": [],
+            "organizations": [],
+            "claim_ids": [
+              "claim-f28a20a95616",
+              "claim-place-synthesis"
+            ],
+            "live_api": false,
+            "provider": "上海图书馆",
+            "source_mode": "reviewed_official_snapshot",
+            "lineage": {
+              "provider": "Shanghai Library",
+              "official_uri": "https://data.library.sh.cn/entity/architecture/7cy7p8b8w6ufxvbe",
+              "evidence_id": "building-bund-observatory",
+              "normalization": "ContextLens place investigation v1"
+            }
+          }
+        ],
+        "archive_network": {
+          "stats": {
+            "node_count": 3,
+            "link_count": 2,
+            "person_count": 0,
+            "organization_count": 0,
+            "event_count": 0,
+            "building_count": 2
+          },
+          "datasets": [
+            {
+              "dataset_id": "road",
+              "title": "上海地名志·道路",
+              "available_label": "1万余地名",
+              "count": 0,
+              "active": false
+            },
+            {
+              "dataset_id": "event",
+              "title": "上海历史文化事件",
+              "available_label": "1.5万余事件",
+              "count": 0,
+              "active": false
+            },
+            {
+              "dataset_id": "building",
+              "title": "上海优秀历史建筑",
+              "available_label": "1086处",
+              "count": 2,
+              "active": true
+            },
+            {
+              "dataset_id": "person",
+              "title": "人名规范库",
+              "available_label": "135万余人",
+              "count": 0,
+              "active": false
+            },
+            {
+              "dataset_id": "organization",
+              "title": "上海年华机构名录",
+              "available_label": "2.1万余机构",
+              "count": 0,
+              "active": false
+            }
+          ],
+          "nodes": [
+            {
+              "node_id": "place:place-bund",
+              "node_type": "place",
+              "name": "外滩 · 中山东一路沿线",
+              "description": "公共历史地标精确命中。",
+              "source_uri": "",
+              "match_status": "resolved",
+              "evidence_ids": []
+            },
+            {
+              "node_id": "feature:building-peace-hotel",
+              "node_type": "building",
+              "name": "和平饭店北楼",
+              "description": "北楼建于1929年，原名华懋饭店，位于中山东一路20号。",
+              "source_uri": "https://data.library.sh.cn/entity/architecture/2iloklca2gojo53e",
+              "match_status": "source_record",
+              "evidence_ids": [
+                "building-peace-hotel"
+              ]
+            },
+            {
+              "node_id": "feature:building-bund-observatory",
+              "node_type": "building",
+              "name": "外滩天文台",
+              "description": "外滩历史陈列室与外滩天文台，位于中山东二路1号甲。",
+              "source_uri": "https://data.library.sh.cn/entity/architecture/7cy7p8b8w6ufxvbe",
+              "match_status": "source_record",
+              "evidence_ids": [
+                "building-bund-observatory"
+              ]
+            }
+          ],
+          "links": [
+            {
+              "source": "place:place-bund",
+              "target": "feature:building-peace-hotel",
+              "relation": "位于",
+              "evidence_ids": [
+                "building-peace-hotel"
+              ]
+            },
+            {
+              "source": "place:place-bund",
+              "target": "feature:building-bund-observatory",
+              "relation": "位于",
+              "evidence_ids": [
+                "building-bund-observatory"
+              ]
+            }
+          ],
+          "people": [],
+          "organizations": []
+        },
+        "map": {
+          "bounds": [
+            121.49633,
+            31.238583,
+            121.49901,
+            31.244972
+          ],
+          "center": [
+            121.49767,
+            31.241777499999998
+          ],
+          "remote_style": "https://tiles.openfreemap.org/styles/liberty",
+          "historical_style": "https://www.openhistoricalmap.org/map-styles/main/main.json",
+          "fallback_available": true,
+          "time": {
+            "selected_year": 1930,
+            "min_year": 1600,
+            "max_year": 2026,
+            "dynamic_layer": {
+              "title": "OpenHistoricalMap 历史矢量层",
+              "style_url": "https://www.openhistoricalmap.org/map-styles/main/main.json",
+              "source_url": "https://www.openhistoricalmap.org/",
+              "license": "CC0；个别要素可能另有署名要求",
+              "coverage_note": "按任意年份过滤；上海细节覆盖随年代和社区录入程度变化。"
+            },
+            "active_era": {
+              "from_year": 1927,
+              "to_year": 1948,
+              "label": "都市文化与战时重组",
+              "note": "商业、出版、文化机构与战争空间并存。"
+            },
+            "era_guide": [
+              {
+                "from_year": 1600,
+                "to_year": 1842,
+                "label": "县城与水网",
+                "note": "可从县城图和早期河道、城厢材料理解开埠前空间。"
+              },
+              {
+                "from_year": 1843,
+                "to_year": 1899,
+                "label": "开埠与租界扩展",
+                "note": "租界、码头和新道路逐步改变城厢边界。"
+              },
+              {
+                "from_year": 1900,
+                "to_year": 1926,
+                "label": "近代市政成形",
+                "note": "道路、电车、公共设施与分区地图迅速增多。"
+              },
+              {
+                "from_year": 1927,
+                "to_year": 1948,
+                "label": "都市文化与战时重组",
+                "note": "商业、出版、文化机构与战争空间并存。"
+              },
+              {
+                "from_year": 1949,
+                "to_year": 1978,
+                "label": "道路更名与城市建设",
+                "note": "道路名称、机构功能和城市治理体系发生变化。"
+              },
+              {
+                "from_year": 1979,
+                "to_year": 1989,
+                "label": "改革开放初期",
+                "note": "旅游图与交通图记录城市重新连接世界。"
+              },
+              {
+                "from_year": 1990,
+                "to_year": 2009,
+                "label": "浦东开发与快速扩张",
+                "note": "新区规划、轨道交通和跨江发展成为主线。"
+              },
+              {
+                "from_year": 2010,
+                "to_year": 2026,
+                "label": "更新与历史保护",
+                "note": "当代底图用于定位，历史建筑与旧址仍需回到来源复核。"
+              }
+            ],
+            "nearest_maps": [
+              {
+                "map_id": "vs-242",
+                "year": 1932,
+                "title": "上海市街图",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=242",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false,
+                "distance": 2
+              },
+              {
+                "map_id": "vs-272",
+                "year": 1926,
+                "title": "公共租界中央区与法租界街道图",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=272",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false,
+                "distance": 4
+              },
+              {
+                "map_id": "vs-100",
+                "year": 1934,
+                "title": "法租界地图",
+                "provider": "Virtual Shanghai",
+                "scope": "法租界",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=100",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false,
+                "distance": 4
+              },
+              {
+                "map_id": "vs-230",
+                "year": 1939,
+                "title": "上海电车线路图",
+                "provider": "Virtual Shanghai",
+                "scope": "城市交通",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=230",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false,
+                "distance": 9
+              }
+            ],
+            "catalog": [
+              {
+                "map_id": "vs-754",
+                "year": 1810,
+                "title": "上海县城图（约1800—1820）",
+                "provider": "Virtual Shanghai",
+                "scope": "上海县城",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=754",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-30",
+                "year": 1855,
+                "title": "上海英租界地面图",
+                "provider": "Virtual Shanghai",
+                "scope": "英租界",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=30",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-345",
+                "year": 1862,
+                "title": "City and Environs of Shanghai",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=345",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-344",
+                "year": 1875,
+                "title": "上海县城厢租界全图",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=344",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-261",
+                "year": 1884,
+                "title": "上海县城厢租界全图",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=261",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-76",
+                "year": 1904,
+                "title": "Plan of Shanghai",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=76",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-260",
+                "year": 1910,
+                "title": "实测上海城厢租界图",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=260",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-72",
+                "year": 1918,
+                "title": "Map of Shanghai",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=72",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-272",
+                "year": 1926,
+                "title": "公共租界中央区与法租界街道图",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=272",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-242",
+                "year": 1932,
+                "title": "上海市街图",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=242",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-100",
+                "year": 1934,
+                "title": "法租界地图",
+                "provider": "Virtual Shanghai",
+                "scope": "法租界",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=100",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-230",
+                "year": 1939,
+                "title": "上海电车线路图",
+                "provider": "Virtual Shanghai",
+                "scope": "城市交通",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=230",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "princeton-1943",
+                "year": 1943,
+                "title": "Plan of Shanghai · Sheet 1",
+                "provider": "Princeton University / AGSL",
+                "scope": "上海城市",
+                "kind": "公共 IIIF 地图",
+                "access": "public_iiif",
+                "source_url": "https://geodiscovery.uwm.edu/catalog/princeton-8623j0184",
+                "terms_url": "https://geodiscovery.uwm.edu/catalog/princeton-8623j0184",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-341",
+                "year": 1946,
+                "title": "上海市街道详图",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=341",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-249",
+                "year": 1956,
+                "title": "上海市市区图",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=249",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-84",
+                "year": 1972,
+                "title": "Shanghai Area",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=84",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-733",
+                "year": 1987,
+                "title": "上海通用版最新旅游图",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=733",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-734",
+                "year": 1994,
+                "title": "浦东新区陆家嘴金融贸易区示意图",
+                "provider": "Virtual Shanghai",
+                "scope": "浦东",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=734",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-262",
+                "year": 2003,
+                "title": "上海城区图",
+                "provider": "Virtual Shanghai",
+                "scope": "上海城市",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=262",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              },
+              {
+                "map_id": "vs-735",
+                "year": 2005,
+                "title": "上海城区交通图",
+                "provider": "Virtual Shanghai",
+                "scope": "城市交通",
+                "kind": "历史地图原件",
+                "access": "external_catalog",
+                "source_url": "https://www.virtualshanghai.net/Maps/Source?ID=735",
+                "terms_url": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+                "overlay_ready": false
+              }
+            ],
+            "catalog_source": "https://www.virtualshanghai.net/Maps/Source?rp=900",
+            "catalog_terms": "https://www.virtualshanghai.net/Project/Rules_and_Conditions",
+            "landmark_models": [
+              {
+                "model_id": "customs-house",
+                "year": 1927,
+                "title": "外滩海关大楼",
+                "model_type": "clock-tower",
+                "height_m": null,
+                "source_url": "https://www.shanghai.gov.cn/gwk/search/content/42925f1923764d98bfa7198785e56512",
+                "note": "依据公开建成年代制作的概念体量，不是测绘级复原。"
+              },
+              {
+                "model_id": "peace-hotel",
+                "year": 1929,
+                "title": "沙逊大厦 / 和平饭店北楼",
+                "model_type": "pyramid-roof",
+                "height_m": 77,
+                "source_url": "https://www.shanghai.gov.cn/nw5827/20200905/0001-5827_632318.html",
+                "note": "体量突出金字塔形屋顶；不替代建筑测绘资料。"
+              },
+              {
+                "model_id": "oriental-pearl",
+                "year": 1994,
+                "title": "东方明珠",
+                "model_type": "pearl-tower",
+                "height_m": 468,
+                "source_url": "https://english.shanghai.gov.cn/en-Latest-WhatsNew/20240930/57966196af434811aec2d86ba75fc7a6.html",
+                "note": "以球体和塔身表达轮廓的概念模型。"
+              },
+              {
+                "model_id": "jinmao",
+                "year": 1998,
+                "title": "金茂大厦",
+                "model_type": "tiered-tower",
+                "height_m": 420.5,
+                "source_url": "https://en.shanghaitower.com/news_2/34.html",
+                "note": "以逐级收分表达轮廓的概念模型。"
+              },
+              {
+                "model_id": "swfc",
+                "year": 2008,
+                "title": "上海环球金融中心",
+                "model_type": "portal-tower",
+                "height_m": 492,
+                "source_url": "https://en.shanghaitower.com/news_2/34.html",
+                "note": "以顶部开口表达轮廓的概念模型。"
+              },
+              {
+                "model_id": "shanghai-tower",
+                "year": 2014,
+                "title": "上海中心大厦",
+                "model_type": "twist-tower",
+                "height_m": 632,
+                "source_url": "https://www.shanghaitower.com/ProjectIntroduction.html",
+                "note": "以旋转收分表达轮廓的概念模型；2014年底土建竣工。"
+              }
+            ]
+          }
+        },
+        "experience": {
+          "flagship": false,
+          "default_duration_seconds": 20,
+          "duration_options": [
+            20,
+            30,
+            45
+          ],
+          "chapters": [
+            {
+              "chapter_id": "place-arrival",
+              "year": 2026,
+              "title": "抵达外滩",
+              "title_en": "Arrive at 外滩",
+              "caption": "先用现代地图建立公开位置，再回到道路实体和历史建筑来源。",
+              "caption_en": "Begin with present-day orientation, then return to road and architecture records.",
+              "duration_ms": 21000,
+              "center": [
+                121.49633,
+                31.244972
+              ],
+              "zoom": 14.2,
+              "pitch": 48,
+              "bearing": -12,
+              "active_layers": [
+                "modern",
+                "landmarks"
+              ],
+              "evidence_ids": [
+                "place-bund"
+              ],
+              "branch": "main"
+            },
+            {
+              "chapter_id": "place-evidence",
+              "year": 1929,
+              "title": "打开地点证据",
+              "title_en": "Open the place evidence",
+              "caption": "地图只显示当前证据集中可定位、可计时的节点；空白继续保持空白。",
+              "caption_en": "The map shows only locatable, time-bounded records in this evidence set; gaps remain visible.",
+              "duration_ms": 24000,
+              "center": [
+                121.49633,
+                31.244972
+              ],
+              "zoom": 15.2,
+              "pitch": 20,
+              "bearing": 0,
+              "active_layers": [
+                "historical",
+                "events",
+                "buildings"
+              ],
+              "evidence_ids": [
+                "building-peace-hotel",
+                "building-bund-observatory"
+              ],
+              "branch": "main"
+            }
+          ],
+          "historical_maps": [
+            {
+              "map_id": "commons-1855",
+              "year": 1855,
+              "title": "上海租界图（1855，叠加1910街道）",
+              "source_url": "https://commons.wikimedia.org/wiki/File:Map_Shanghai_1855.jpg",
+              "provider": "Wikimedia Commons",
+              "license": "Public Domain Mark",
+              "attribution": "Unknown author / Wikimedia Commons",
+              "overlay_status": "side_by_side",
+              "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Map Shanghai 1855.jpg?width=1400",
+              "iiif_manifest_url": "",
+              "annotation_url": "",
+              "bounds": [],
+              "rms_error_m": null,
+              "error_threshold_m": null
+            },
+            {
+              "map_id": "commons-1916",
+              "year": 1916,
+              "title": "Shanghai around 1910（1916年出版）",
+              "source_url": "https://commons.wikimedia.org/wiki/File:Shanghai_ca_1910.JPG",
+              "provider": "Nordisk familjebok / Wikimedia Commons",
+              "license": "Public domain",
+              "attribution": "Nordisk familjebok / Wikimedia Commons",
+              "overlay_status": "side_by_side",
+              "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shanghai ca 1910.JPG?width=1400",
+              "iiif_manifest_url": "",
+              "annotation_url": "",
+              "bounds": [],
+              "rms_error_m": null,
+              "error_threshold_m": null
+            },
+            {
+              "map_id": "princeton-1943",
+              "year": 1943,
+              "title": "Plan of Shanghai · Sheet 1",
+              "source_url": "https://geodiscovery.uwm.edu/catalog/princeton-8623j0184",
+              "provider": "Princeton University Library / AGSL",
+              "license": "Public content; rights status NKC",
+              "attribution": "Army Map Service / Princeton University Library",
+              "overlay_status": "review_only",
+              "image_url": "https://iiif-cloud.princeton.edu/iiif/2/42%2F8a%2F93%2F428a930342fb4c36ae9b4ecdc57eae37%2Fintermediate_file/full/1600,/0/default.jpg",
+              "iiif_manifest_url": "https://figgy.princeton.edu/concern/scanned_maps/9691c7cc-726c-4a44-9f77-0a9867178fb8/manifest",
+              "annotation_url": "/assets/data/princeton-1943-georef.json",
+              "bounds": [],
+              "rms_error_m": null,
+              "error_threshold_m": null
+            },
+            {
+              "map_id": "commons-1954",
+              "year": 1954,
+              "title": "Shanghai Map 1954",
+              "source_url": "https://commons.wikimedia.org/wiki/File:Shanghai_Map_1954.jpg",
+              "provider": "US Army Corps of Engineers / Wikimedia Commons",
+              "license": "Public domain (US federal work)",
+              "attribution": "US Army Corps of Engineers / Wikimedia Commons",
+              "overlay_status": "side_by_side",
+              "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shanghai Map 1954.jpg?width=1600",
+              "iiif_manifest_url": "",
+              "annotation_url": "",
+              "bounds": [],
+              "rms_error_m": null,
+              "error_threshold_m": null
+            }
+          ],
+          "landmark_scenes": [
+            {
+              "model_id": "customs-house",
+              "title": "外滩海关大楼",
+              "title_en": "Customs House",
+              "longitude": 121.4903,
+              "latitude": 31.2398,
+              "start_year": 1927,
+              "end_year": null,
+              "height_m": 90,
+              "width_m": 34,
+              "depth_m": 44,
+              "model_type": "clock-tower",
+              "reconstruction_level": "C",
+              "reconstruction_note": "坐标和建成年代可核验；展示高度为相对体量。",
+              "source_uri": "https://www.shanghai.gov.cn/gwk/search/content/42925f1923764d98bfa7198785e56512",
+              "evidence_ids": []
+            },
+            {
+              "model_id": "peace-hotel",
+              "title": "和平饭店北楼",
+              "title_en": "Peace Hotel North Building",
+              "longitude": 121.4906,
+              "latitude": 31.2409,
+              "start_year": 1929,
+              "end_year": null,
+              "height_m": 77,
+              "width_m": 42,
+              "depth_m": 34,
+              "model_type": "pyramid-roof",
+              "reconstruction_level": "B",
+              "reconstruction_note": "坐标、建成年代与77米高度可核验；立面细节未复原。",
+              "source_uri": "https://www.shanghai.gov.cn/nw5827/20200905/0001-5827_632318.html",
+              "evidence_ids": []
+            },
+            {
+              "model_id": "oriental-pearl",
+              "title": "东方明珠",
+              "title_en": "Oriental Pearl Tower",
+              "longitude": 121.4953,
+              "latitude": 31.2417,
+              "start_year": 1994,
+              "end_year": null,
+              "height_m": 468,
+              "width_m": 24,
+              "depth_m": 24,
+              "model_type": "pearl-tower",
+              "reconstruction_level": "A",
+              "reconstruction_note": "位置、建成年代与468米高度采用官方资料。",
+              "source_uri": "https://english.shanghai.gov.cn/en-Latest-WhatsNew/20240930/57966196af434811aec2d86ba75fc7a6.html",
+              "evidence_ids": []
+            },
+            {
+              "model_id": "jinmao",
+              "title": "金茂大厦",
+              "title_en": "Jin Mao Tower",
+              "longitude": 121.5056,
+              "latitude": 31.2353,
+              "start_year": 1998,
+              "end_year": null,
+              "height_m": 420.5,
+              "width_m": 46,
+              "depth_m": 46,
+              "model_type": "tiered-tower",
+              "reconstruction_level": "A",
+              "reconstruction_note": "位置、年份与高度可核验，模型为简化轮廓。",
+              "source_uri": "https://en.shanghaitower.com/news_2/34.html",
+              "evidence_ids": []
+            },
+            {
+              "model_id": "swfc",
+              "title": "上海环球金融中心",
+              "title_en": "Shanghai World Financial Center",
+              "longitude": 121.5074,
+              "latitude": 31.2346,
+              "start_year": 2008,
+              "end_year": null,
+              "height_m": 492,
+              "width_m": 48,
+              "depth_m": 48,
+              "model_type": "portal-tower",
+              "reconstruction_level": "A",
+              "reconstruction_note": "位置、年份与高度可核验，模型为简化轮廓。",
+              "source_uri": "https://en.shanghaitower.com/news_2/34.html",
+              "evidence_ids": []
+            },
+            {
+              "model_id": "shanghai-tower",
+              "title": "上海中心大厦",
+              "title_en": "Shanghai Tower",
+              "longitude": 121.5011,
+              "latitude": 31.2336,
+              "start_year": 2014,
+              "end_year": null,
+              "height_m": 632,
+              "width_m": 58,
+              "depth_m": 58,
+              "model_type": "twist-tower",
+              "reconstruction_level": "A",
+              "reconstruction_note": "位置与632米高度采用官方资料；模型仅表达旋转收分。",
+              "source_uri": "https://www.shanghaitower.com/ProjectIntroduction.html",
+              "evidence_ids": []
+            }
+          ],
+          "interactions": [
+            {
+              "interaction_id": "source-trail",
+              "interaction_type": "source_count",
+              "title": "打开三条来源",
+              "title_en": "Open three sources",
+              "prompt": "沿证据抽屉打开三条不同来源。",
+              "prompt_en": "Open three distinct records from the evidence drawer.",
+              "evidence_ids": [
+                "building-peace-hotel",
+                "building-bund-observatory"
+              ],
+              "payload": {
+                "required": 2
+              },
+              "stamp_id": "source-trail"
+            }
+          ],
+          "comparison": {
+            "year_a": 1934,
+            "year_b": 2026,
+            "anchors": [
+              1855,
+              1901,
+              1915,
+              1934,
+              1944,
+              1950,
+              1994,
+              2026
+            ]
+          },
+          "privacy": {
+            "memory_uploaded": false,
+            "memory_in_url": false,
+            "stamps_storage": "sessionStorage"
+          }
+        },
+        "quality": {
+          "resolved": true,
+          "direct_claim_count": 2,
+          "source_count": 2,
+          "archive_dataset_count": 1,
+          "person_count": 0,
+          "organization_count": 0,
+          "live_feature_count": 0,
+          "fallback_feature_count": 2,
+          "uncertainty": "bounded",
+          "warnings": []
+        },
+        "replay": [
+          {
+            "stage": "resolving",
+            "label": "地址解析",
+            "detail": "识别地点：外滩 · 中山东一路沿线"
+          },
+          {
+            "stage": "fetching",
+            "label": "上图多库搜索",
+            "detail": "检索道路、事件、建筑、人物与机构，共保留 2 条时空特征"
+          },
+          {
+            "stage": "linking",
+            "label": "时空关联",
+            "detail": "按旧今名称、年代和空间精度建立关联"
+          },
+          {
+            "stage": "auditing",
+            "label": "证据审计",
+            "detail": "形成 2 条直接主张，其余保持背景或待考"
+          }
+        ],
+        "generated_at": "2026-09-12T06:42:19.976276+00:00",
+        "deployment_mode": "stateless_bundled_evidence"
+      },
+      "elapsed_ms": 0.802
+    },
+    {
+      "case_id": "ambiguous-nanjing",
+      "address": "南京路百货公司",
+      "era": "1940年代",
+      "http_status": 200,
+      "resolution": "ambiguous",
+      "candidates": 2,
+      "elapsed_ms": 0.126
+    },
+    {
+      "case_id": "unresolved",
+      "address": "9999 Mars Road",
+      "era": "1934",
+      "http_status": 200,
+      "resolution": "unresolved",
+      "candidates": 0,
+      "elapsed_ms": 0.017
+    }
+  ],
+  "elapsed_ms": 6.426
+}
