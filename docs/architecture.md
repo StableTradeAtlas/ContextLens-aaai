@@ -1,133 +1,58 @@
-# ContextLens Architecture
+# ContextLens software architecture
 
-```text
-Historical clue
-    ↓
-Clue parsing and task selection
-    ↓
-Investigation plan
-    ↓
-Shanghai Library retrieval tools + local SQLite evidence store
-    ↓
-EvidenceRecord normalization
-    ↓
-Source-passport metadata
-    ↓
-Entity linking
-    ↓
-Claim-level evidence ledger
-    ↓
-Counter-evidence and gap audit
-    ↓
-Professional research-design briefing
-    ↓
-Replayable historical dossier
+The public product is a four-view address dossier. Both deployment modes call the
+same resolver, place-feature ranking, and claim-gating code.
+
+```mermaid
+flowchart TD
+    U["Bilingual address and era input"] --> R{"Deployment mode"}
+    R --> L["Local HTTP server and job progress"]
+    R --> V["Vercel stateless Python function"]
+    L --> C["Alias resolver and candidate selection"]
+    V --> C
+    F["Bundled curated road identities and place features"] --> C
+    C --> E["Place-feature ranking and claim gates"]
+    F --> E
+    A["Optional live library adapters: local only"] -.-> E
+    E --> D["Dossier JSON with evidence links"]
+    D --> B["Identity, Events, Atlas, Sources"]
+    M["External historical images and map tiles"] --> B
+    B --> X["Source inspection, JSON export, print"]
 ```
 
-## Product Frame
+## Data contracts
 
-ContextLens is designed around four public tasks:
+The main address flow uses PlaceCandidate, HistoricalFeature, and HistoricalClaim
+objects in app/models.py. The legacy research interface uses EvidenceRecord and a
+SQLite index populated from the 154-record official snapshot. The address route
+uses bundled curated features in app/place_investigation.py and optional live
+adapters; it does not search all 154 indexed records for each address.
 
-- 追一个人
-- 寻一处地
-- 还原一件事
-- 读懂一份文献
+Snapshot records retain payload hashes and retrieval metadata. Curated address
+cards retain source URI, evidence ID, provider, and normalization metadata, but do
+not all carry the snapshot's complete retrieval lineage. Do not describe those
+contracts as identical without adding and validating the missing fields.
 
-The current build also includes two public-expansion modes:
+## Evidence boundaries
 
-- 城市记忆漫游: old addresses, streets, buildings, maps, photos, public culture, and walkable dossiers.
-- 家族线索寻踪: surnames, genealogies, alumni lists, old residences, relatives, and personal memory.
+Individual direct claims require a named-place match, an eligible dated event or
+addressed building, a source URI, and the requested house-number match. A separate
+road-level synthesis can combine multiple distinct source URIs. A distinct URI is
+not proof of independent historical corroboration.
 
-The original StableTrade Atlas topic now lives inside **上海与世界专题**. It remains useful for monetary history, ports, customs, merchants, banks, shipping, Silk Road, and Belt and Road analogy demos, but it no longer defines the whole product.
+Dates are preserved and shown; the present implementation does not universally
+filter records by compatibility with the requested year. Era input also guides
+historical-map context. Resolver confidence values are heuristics, not calibrated
+probabilities.
 
-## Historical Evidence Compiler
+## Optional research interface
 
-The backend keeps the existing deterministic retrieval foundation and adds an investigation dossier to every answer:
+Local /research-tools and /api/ask retain the wider historical research interface.
+A backend interpretation endpoint can invoke an optional model. The main four-view
+frontend does not call that endpoint; its three dossier questions are deterministic.
+Citation-ID filtering checks references, not whether generated prose is entailed.
+The Vercel adapter exposes only the credential-free address flow.
 
-```text
-question_analysis
-    ↓
-entities
-    ↓
-plan
-    ↓
-claims
-    ↓
-counter_evidence
-    ↓
-receipt
-    ↓
-graph + replay
-```
+## Reproduction
 
-The key rule is: **no important claim should appear without evidence status**. The current implementation labels each claim as direct support, context support, weak support, or needs more evidence.
-
-Every evidence card also carries a source passport: evidence type, provenance note, time span, public tags, geo status, and verification notes. This makes demo seed records visibly different from live API records and gives reviewers a clear manual-review route.
-
-## Award Readiness Layer
-
-Every answer includes an `award_readiness` object. It scores:
-
-- public reusability;
-- Shanghai Library data utilization;
-- claim-level traceability;
-- investigation depth;
-- guardrails and audit;
-- differentiation from generic RAG.
-
-This is not a substitute for judging; it is an internal quality cockpit for first-prize-oriented iteration.
-
-## Professional Briefing Layer
-
-Every answer also includes `professional_briefing`, a compact method section for proposal and demo use:
-
-- research design;
-- data strategy;
-- evidence protocol;
-- public productization;
-- submission risks;
-- curatorial pitch.
-
-The web UI places this near the top of the result page so reviewers see the logic of the investigation before reading the detailed modules.
-
-## Data Flow
-
-```text
-Shanghai Library API key
-    ↓
-app.library_client
-    ↓
-raw JSON cache under data/raw/
-    ↓
-normalized EvidenceRecord objects
-    ↓
-SQLite local store
-    ↓
-retrieval + evidence fit scoring
-    ↓
-investigation dossier + UI
-```
-
-If the live API is unavailable, the demo loads transparent seed records from `app/sample_data.py`.
-
-The local demo seed pool currently contains 54 transparent records across people, places, events, documents, maps, images, genealogies, periodicals, institutions, mobility, public culture, and urban daily life. The health endpoint exposes a data-catalog summary so the UI can show dataset families, evidence types, and public-use tags.
-
-## Visual Layers
-
-The web demo has two canvas visualizations:
-
-- 3D investigation protocol atlas: shows the product's Plan -> Search -> Link -> Claim -> Audit workflow.
-- Per-answer claim-evidence graph: shows the current clue, linked entities, evidence sources, audited claims, and final dossier.
-
-Both are local canvas renderers and do not depend on an external CDN.
-
-## Security Principles
-
-- API key is loaded from `.env` or environment variables only.
-- The browser frontend never receives the API key.
-- Raw data and logs are gitignored by default.
-- User clues are length-limited in the local web MVP.
-- Dynamic frontend rendering escapes HTML.
-- User input is never executed as a shell command.
-- Public answers must include citations or be marked for review.
-- Finance/payment questions receive a non-financial-advice compliance warning.
+See [REPRODUCIBILITY.md](REPRODUCIBILITY.md) and [VERCEL.md](VERCEL.md).

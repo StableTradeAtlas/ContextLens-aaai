@@ -1,0 +1,5 @@
+# Optional research interfaces; not installed by the Vercel demo.
+fastapi>=0.111
+uvicorn>=0.30
+streamlit>=1.36
+requests>=2.32

@@ -193,6 +193,8 @@ async function investigate(address:string,era:string,candidate:Candidate){
   state.candidate=candidate; showProgress(); $("progressTitle").textContent=state.lang==="en"?"Building the address dossier":"正在建立地址档案"; $("progressText").textContent=state.lang==="en"?"Keeping only place-specific records that link back to a source.":"只保留与地点直接相关且可返回来源的记录。";
   try{
     const job=await api("/api/investigations",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({address,era_hint:era,candidate,allow_live:true,language:state.lang})}); state.jobId=job.id;
+    // Hosted investigations finish in one request; the local server keeps its progress API.
+    if(job.status==="complete" && job.result){state.result=job.result;hideProgress();openDossier();return;}
     for(let i=0;i<80;i++){
       const current=await api(`/api/investigations/${job.id}`); $("progressBar").style.width=`${Math.max(18,current.progress||i*2)}%`; if(current.message&&state.lang==="zh") $("progressText").textContent=current.message;
       if(current.status==="complete"){state.result=current.result;hideProgress();openDossier();return;} if(current.status==="failed") throw new Error(current.error||"调查失败"); await new Promise(r=>setTimeout(r,180));

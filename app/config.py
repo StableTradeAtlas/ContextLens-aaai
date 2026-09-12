@@ -1,16 +1,23 @@
 from __future__ import annotations
 
 import os
+import tempfile
 from dataclasses import dataclass
 from pathlib import Path
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = PROJECT_ROOT / "data"
-RAW_DIR = DATA_DIR / "raw"
+# The published snapshot is immutable; only caches/indexes/logs use runtime storage.
+IS_VERCEL = os.environ.get("VERCEL") == "1"
+RUNTIME_DIR = Path(os.environ.get(
+    "CONTEXTLENS_RUNTIME_DIR",
+    str(Path(tempfile.gettempdir()) / "contextlens") if IS_VERCEL else str(DATA_DIR),
+))
+RAW_DIR = RUNTIME_DIR / "raw"
 PROCESSED_DIR = DATA_DIR / "processed"
-INDEX_DIR = DATA_DIR / "index"
-LOG_DIR = DATA_DIR / "logs"
+INDEX_DIR = RUNTIME_DIR / "index"
+LOG_DIR = RUNTIME_DIR / "logs"
 DB_PATH = INDEX_DIR / "contextlens_demo.sqlite"
 
 
@@ -40,7 +47,7 @@ def _load_dotenv() -> None:
 
 
 def ensure_dirs() -> None:
-    for path in (RAW_DIR, PROCESSED_DIR, INDEX_DIR, LOG_DIR):
+    for path in (RAW_DIR, INDEX_DIR, LOG_DIR):
         path.mkdir(parents=True, exist_ok=True)
 
 
