@@ -1,6 +1,6 @@
 {
   "scope": "Four curated acceptance cases; no held-out accuracy or user-study claim.",
-  "git_commit": "bce00f40334d5966460c53300ee071e245bcda30",
+  "git_commit": "c98127ba6958b53b50a4f88a7c4f7f142ae439b3",
   "python": "3.12.14",
   "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
   "snapshot_mode": "Bundled curated place features; library snapshot counted separately.",
@@ -1522,10 +1522,10 @@
             "detail": "形成 2 条直接主张，其余保持背景或待考"
           }
         ],
-        "generated_at": "2026-09-12T06:42:19.975440+00:00",
+        "generated_at": "2026-09-12T06:55:27.782090+00:00",
         "deployment_mode": "stateless_bundled_evidence"
       },
-      "elapsed_ms": 1.541
+      "elapsed_ms": 1.135
     },
     {
       "case_id": "bund-1930s",
@@ -2600,10 +2600,10 @@
             "detail": "形成 2 条直接主张，其余保持背景或待考"
           }
         ],
-        "generated_at": "2026-09-12T06:42:19.976276+00:00",
+        "generated_at": "2026-09-12T06:55:27.782695+00:00",
         "deployment_mode": "stateless_bundled_evidence"
       },
-      "elapsed_ms": 0.802
+      "elapsed_ms": 0.589
     },
     {
       "case_id": "ambiguous-nanjing",
@@ -2612,7 +2612,7 @@
       "http_status": 200,
       "resolution": "ambiguous",
       "candidates": 2,
-      "elapsed_ms": 0.126
+      "elapsed_ms": 0.095
     },
     {
       "case_id": "unresolved",
@@ -2621,8 +2621,8 @@
       "http_status": 200,
       "resolution": "unresolved",
       "candidates": 0,
-      "elapsed_ms": 0.017
+      "elapsed_ms": 0.013
     }
   ],
-  "elapsed_ms": 6.426
+  "elapsed_ms": 5.193
 }
