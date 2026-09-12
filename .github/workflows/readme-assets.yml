@@ -5,19 +5,25 @@ on:
     branches: [main]
     paths:
       - README.md
+      - README.zh-CN.md
       - docs/media/README.md
       - docs/media/contextlens-teaser.svg
+      - docs/media/contextlens-teaser.zh-CN.svg
       - docs/media/badges/**
       - scripts/render_readme.py
+      - scripts/capture_walkthrough.py
       - .github/workflows/readme-assets.yml
   pull_request:
     branches: [main]
     paths:
       - README.md
+      - README.zh-CN.md
       - docs/media/README.md
       - docs/media/contextlens-teaser.svg
+      - docs/media/contextlens-teaser.zh-CN.svg
       - docs/media/badges/**
       - scripts/render_readme.py
+      - scripts/capture_walkthrough.py
       - .github/workflows/readme-assets.yml
   workflow_dispatch:
 
@@ -38,12 +44,28 @@ jobs:
           python -m pip install -r requirements-dev.txt
           python -m playwright install --with-deps chromium
           sudo apt-get install -y fonts-noto-cjk
+      - name: Record the Chinese interface from the bundled frontend
+        env:
+          CONTEXTLENS_RUNTIME_DIR: /tmp/contextlens-readme
+          CONTEXTLENS_USE_LIVE_API: "0"
+          CONTEXTLENS_USE_DEEPSEEK: "0"
+        run: |
+          python scripts/prepare_vercel.py
+          python scripts/capture_walkthrough.py --language zh
       - name: Check SVG content, text fit, and relative links; export PNG
         run: python scripts/render_readme.py
       - uses: actions/upload-artifact@v4
         with:
           name: contextlens-readme-teaser
-          path: docs/media/contextlens-teaser.png
+          path: |
+            docs/media/contextlens-teaser.png
+            docs/media/contextlens-teaser.zh-CN.png
+            docs/media/01-address.zh-CN.gif
+            docs/media/01-address.zh-CN.png
+            docs/media/02-evidence.zh-CN.gif
+            docs/media/02-evidence.zh-CN.png
+            docs/media/03-boundaries.zh-CN.gif
+            docs/media/03-boundaries.zh-CN.png
           if-no-files-found: error
 
   publish:
@@ -70,13 +92,13 @@ jobs:
         with:
           name: contextlens-readme-teaser
           path: docs/media
-      - name: Save the generated PNG
+      - name: Save the generated teasers and Chinese walkthroughs
         if: steps.source.outputs.current == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/media/contextlens-teaser.png
+          git add docs/media/contextlens-teaser*.png docs/media/0*.zh-CN.gif docs/media/0*.zh-CN.png
           if ! git diff --cached --quiet; then
-            git commit -m "Export ContextLens README teaser"
+            git commit -m "Export bilingual ContextLens documentation assets"
             git push origin HEAD:main
           fi

@@ -1,4 +1,4 @@
-"""Render the README teaser and check its SVG assets, text fit, and local links."""
+"""Render both README teasers and check SVG assets, text fit, and local links."""
 from __future__ import annotations
 
 import json
@@ -11,7 +11,10 @@ from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
 MEDIA = ROOT / "docs" / "media"
-TEASER = MEDIA / "contextlens-teaser.svg"
+TEASERS = (
+    MEDIA / "contextlens-teaser.svg",
+    MEDIA / "contextlens-teaser.zh-CN.svg",
+)
 
 
 def validate_svg(path: Path) -> None:
@@ -61,7 +64,7 @@ def validate_links(path: Path) -> int:
 
 
 def main() -> None:
-    assets = [TEASER, *sorted((MEDIA / "badges").glob("*.svg"))]
+    assets = [*TEASERS, *sorted((MEDIA / "badges").glob("*.svg"))]
     for path in assets:
         validate_svg(path)
     with sync_playwright() as playwright:
@@ -89,16 +92,18 @@ def main() -> None:
             }""")
             if overflow:
                 raise ValueError(f"{path.name}: text overflow {overflow}")
-            if path == TEASER:
-                page.locator("svg").screenshot(path=str(TEASER.with_suffix(".png")))
+            if path in TEASERS:
+                page.locator("svg").screenshot(path=str(path.with_suffix(".png")))
         browser.close()
-    links = sum(validate_links(path) for path in [ROOT / "README.md", MEDIA / "README.md"])
+    links = sum(validate_links(path) for path in [
+        ROOT / "README.md", ROOT / "README.zh-CN.md", MEDIA / "README.md"
+    ])
     print(json.dumps({
         "svg_assets": len(assets),
         "local_links": links,
         "text_fit": "passed",
         "self_contained_svg": "passed",
-        "png": str(TEASER.with_suffix(".png").relative_to(ROOT)),
+        "png": [str(path.with_suffix(".png").relative_to(ROOT)) for path in TEASERS],
         "png_dimensions": [3200, 1880],
     }, indent=2))
 

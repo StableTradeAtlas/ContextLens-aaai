@@ -1,5 +1,7 @@
 <h1 align="center">文脉镜 · ContextLens</h1>
 
+<p align="center"><strong>English</strong> | <a href="README.zh-CN.md">简体中文</a></p>
+
 <p align="center"><strong>Explore Shanghai's past, one address at a time.</strong><br>
 Historical names · Dated records · Then-and-now maps · Inspectable sources</p>
 
@@ -22,7 +24,7 @@ Historical names · Dated records · Then-and-now maps · Inspectable sources</p
 <p align="center">
   <a href="#local-launch"><img src="docs/media/badges/python.svg" alt="Python 3.11 or later"></a>
   <a href="LICENSE"><img src="docs/media/badges/license.svg" alt="Code license: Apache-2.0"></a>
-  <a href="#one-address-four-views"><img src="docs/media/badges/language.svg" alt="Chinese and English interface"></a>
+  <a href="README.zh-CN.md"><img src="docs/media/badges/language.svg" alt="Chinese and English interface"></a>
   <a href="docs/VERCEL.md"><img src="docs/media/badges/vercel.svg" alt="Vercel deployment instructions"></a>
   <a href="docs/REPRODUCIBILITY.md"><img src="docs/media/badges/reproduce.svg" alt="Reproduction instructions"></a>
 </p>
@@ -37,6 +39,13 @@ Historical names · Dated records · Then-and-now maps · Inspectable sources</p
 Enter an old address and era, inspect its names and dated records, compare historical
 and modern maps, and follow the evidence back to its source. The teaser shows the
 implemented address workflow; the recordings below show the running interface.
+
+## Language options
+
+Read this page in **English** or [简体中文](README.zh-CN.md). Each version has its
+own teaser and annotated interface recordings. In the running app, use the
+top-right **EN / ZH** button: **EN** switches to English, and **ZH** switches to Chinese.
+The app opens in Chinese.
 
 ## One address, four views
 
