@@ -57,7 +57,7 @@ claim-to-evidence links as JSON.
 address produces an unresolved result.
 [Static fallback](docs/media/03-boundaries.png)
 
-The [four-minute demo script](docs/tomorrow_demo_script.md) follows the same sequence.
+The [demo walkthrough](docs/demo_walkthrough.md) follows the same sequence.
 
 ## Software architecture
 
@@ -113,9 +113,9 @@ Use **Python 3.11+**; Python **3.12** is recommended to match CI and Vercel.
 The packaged frontend and core Python application need no model/library key or
 Node.js installation for normal local use.
 
+Open a terminal in the extracted project folder:
+
 ```bash
-git clone https://github.com/sunshineluyao/ContextLens-aaai.git
-cd ContextLens-aaai
 python3 start.py
 ```
 
@@ -163,10 +163,9 @@ These are implementation and acceptance checks, not retrieval-accuracy or
 user-study evidence.
 
 [Reproduction instructions](docs/REPRODUCIBILITY.md) ·
-[GitHub Actions](../../actions) ·
 [Generated acceptance report](reproducibility/demo-report.json)
 
-## Research boundaries and credit
+## Scope and licenses
 
 The current system is a Shanghai-specific prototype. Expert review of aliases,
 dates, source adequacy, and coarse coordinates remains necessary. The public
@@ -175,7 +174,4 @@ Hosting providers and external map/source services may process ordinary access
 metadata.
 
 Code is licensed under [Apache-2.0](LICENSE). Shanghai Library records and map
-assets retain their source-specific rights and attribution requirements. The
-project originated in the Shanghai Library Open Data Contest; this fork prepares
-the address demo for research dissemination. Authorship, acknowledgments, and
-submission links should be synchronized with the authors' final approved paper.
+assets retain their source-specific rights and attribution requirements.

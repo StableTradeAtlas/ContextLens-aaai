@@ -36,7 +36,7 @@ if st.button("Generate traceable historical dossier", type="primary"):
     result = answer_question(question, language="zh", mode=mode, output_style=style)
     st.subheader("一句话发现")
     st.write(result.get("one_line_finding", ""))
-    st.subheader("评审就绪度")
+    st.subheader("原型诊断")
     st.json(result.get("award_readiness", {}))
     st.subheader("Problem Summary")
     st.write(result["problem_summary"])

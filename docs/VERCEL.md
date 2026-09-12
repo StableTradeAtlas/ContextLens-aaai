@@ -11,19 +11,15 @@ need internet access.
 
 ## 1. Prepare the Git version
 
-Merge the reviewed deployment pull request into your own main branch first.
-Repository: https://github.com/sunshineluyao/ContextLens-aaai
-
-For a preview before merging, create a deployment of the branch
-codex/aaai27-repro-vercel after importing the project. The unchanged original
-main branch does not contain this Vercel adapter.
+Put the demo source files in a GitHub repository you control. Confirm that the
+selected branch contains vercel.json and api/service.py.
 
 ## 2. Import the repository
 
-1. Sign into https://vercel.com using the GitHub account that owns this fork.
+1. Sign into https://vercel.com using the GitHub account that owns your deployment repository.
 2. Select your personal Hobby account.
 3. Choose **Add New → Project**.
-4. In **Import Git Repository**, select **sunshineluyao/ContextLens-aaai**.
+4. In **Import Git Repository**, select **your deployment repository**.
 5. If it is absent, use the GitHub integration's repository-access settings to
    grant Vercel access to this repository.
 6. Keep **Root Directory** at the repository root. Do not select frontend/.
@@ -63,11 +59,10 @@ working deployment.
 6. Download the evidence JSON and open at least one original source URI.
 7. Repeat the address investigation after a page reload. It must not rely on a job
    from a previous function instance.
-8. If reviewers need public access, check the production URL in a signed-out
+8. If the demo needs public access, check the production URL in a signed-out
    browser and configure Deployment Protection to match the intended audience.
 
-Add the verified production URL to README.md and the submission's appropriate
-artifact field. Do not substitute a guessed project URL.
+Add the verified production URL to README.md after checking the site. Do not substitute a guessed project URL.
 
 ## 5. Reproduce the hosted mode locally
 
@@ -102,7 +97,7 @@ Mutable cache/index paths are separated from the read-only packaged snapshot.
 | Page loads but API is 404 | Confirm the project root and vercel.json rewrites. |
 | Investigation polling fails | Rebuild frontend/src/main.ts; the hosted adapter returns the result in the POST response. |
 | Map or archival scan does not load | These assets come from external providers; evidence and source metadata remain inspectable. |
-| Reviewer sees a sign-in screen | Check Deployment Protection for the exact production URL. |
+| Visitor sees a sign-in screen | Check Deployment Protection for the exact production URL. |
 | Free usage is exhausted | Check Hobby usage; local deployment remains available. |
 
 ## Hosting scope and official documentation

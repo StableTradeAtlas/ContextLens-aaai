@@ -6,9 +6,9 @@ Reference environment: Python 3.12, Node.js 24, npm dependencies pinned by
 package-lock.json. The core Python runtime requires no third-party packages.
 requirements-dev.txt pins pytest and the browser-capture tools.
 
+Open a terminal in the extracted project folder:
+
 ```bash
-git clone https://github.com/sunshineluyao/ContextLens-aaai.git
-cd ContextLens-aaai
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements-dev.txt
@@ -26,7 +26,7 @@ reference version for CI and Vercel.
 Run pytest rather than only executing tests/test_place_investigation.py: the
 original file's main block does not call every defined test function. The original
 suite contains 29 functions, and the serverless adapter adds 8 targeted tests.
-Report the actual collected/passed count and tested commit from the CI result.
+Use the collected/passed count and tested commit in the CI output.
 
 ## Four acceptance cases
 
@@ -61,9 +61,7 @@ It also verifies that the evidence download contains actual claims and records.
 The GIFs are sequences of captured interface states, not a continuous timing
 measurement. External imagery may be unavailable in some recording environments.
 
-The Reproduce demo workflow runs the same checks. On the deployment proposal
-branch only, a separate job saves the generated assets after tests and capture
-succeed. Its report identifies the source commit used for the measurements.
+The Reproduce demo workflow runs the same checks and packages the demo files.
 
 ## What is and is not reproduced
 
@@ -77,12 +75,7 @@ succeed. Its report identifies the source commit used for the measurements.
 - The archived JSON preserves raw record objects and source-payload hash metadata,
   but not the complete set of 93 original HTTP response files.
 
-## Freeze a submission artifact
+## Preserve a verified version
 
-After validating the final build, record its Git commit in the paper/supplement
-and retain the CI report, query outputs, and snapshot checksum. Tag or archive that
-reviewed commit so later development does not change the submission artifact.
-
-Keep the required demonstration video accessible without login. Choose consistent
-single-blind or double-blind artifact packaging according to the demonstration
-track's current instructions; a named GitHub URL reveals authorship.
+Keep the tested source commit, query outputs, test results, and SHA-256 source
+checksums together so the demonstration can be reproduced from the same version.
