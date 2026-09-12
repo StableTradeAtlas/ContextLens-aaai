@@ -51,8 +51,8 @@ def test_runtime_wrapper_health_returns_json():
             assert body["ok"] and body["official_records"] == 154
 
 
-def test_runtime_wrapper_completes_chinese_and_english_investigations():
-    for address in ("外滩20号", "20 The Bund"):
+def test_runtime_wrapper_completes_bund_and_joffre_investigations():
+    for address in ("外滩20号", "霞飞路436号"):
         payload = {"address": address, "era_hint": "1930年代"}
         with request("POST", "/api/service?route=place%2Fresolve", payload) as (response, body):
             assert response.status == 200

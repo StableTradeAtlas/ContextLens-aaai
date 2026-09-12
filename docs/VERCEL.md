@@ -62,6 +62,14 @@ working deployment.
 8. If the demo needs public access, check the production URL in a signed-out
    browser and configure Deployment Protection to match the intended audience.
 
+For an automated check of both languages, all four views, and JSON downloads:
+
+```bash
+python3 -m pip install -r requirements-dev.txt
+python3 -m playwright install chromium
+python3 scripts/check_browser.py --base-url https://YOUR-PROJECT.vercel.app
+```
+
 Add the verified production URL to README.md after checking the site. Do not substitute a guessed project URL.
 
 ## 5. Reproduce the hosted mode locally
@@ -94,6 +102,7 @@ Mutable cache/index paths are separated from the read-only packaged snapshot.
 |---|---|
 | Import deploys the old app | Confirm the deployed commit contains vercel.json and api/service.py. |
 | Python framework detected unexpectedly | Select Other; install requirements.txt, not requirements-optional.txt. |
+| Page loads but API returns HTTP 500 / FUNCTION_INVOCATION_FAILED | Deploy the current handler, which uses process_api_request rather than Vercel's reserved handle_request method. Check runtime logs if the error persists. |
 | Page loads but API is 404 | Confirm the project root and vercel.json rewrites. |
 | Investigation polling fails | Rebuild frontend/src/main.ts; the hosted adapter returns the result in the POST response. |
 | Map or archival scan does not load | These assets come from external providers; evidence and source metadata remain inspectable. |

@@ -203,7 +203,7 @@ python3 scripts/demo_report.py
 ```
 
 The original suite has 29 test functions; the serverless adapter adds 8 targeted
-tests. Use the actual CI result for the collected/passed count. The report records
+tests and 4 HTTP-handler regression tests. Use the actual CI result for the collected/passed count. The report records
 the tested commit, source checksums, query outputs, and measured case timings.
 These are implementation and acceptance checks, not retrieval-accuracy or
 user-study evidence.

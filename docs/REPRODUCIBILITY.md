@@ -25,7 +25,8 @@ reference version for CI and Vercel.
 
 Run pytest rather than only executing tests/test_place_investigation.py: the
 original file's main block does not call every defined test function. The original
-suite contains 29 functions, and the serverless adapter adds 8 targeted tests.
+suite contains 29 functions; the serverless adapter adds 8 targeted tests and
+4 HTTP-handler regression tests that exercise Vercel's method-dispatch wrapper.
 Use the collected/passed count and tested commit in the CI output.
 
 ## Four acceptance cases
