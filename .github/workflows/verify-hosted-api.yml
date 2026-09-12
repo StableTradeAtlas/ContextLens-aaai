@@ -1,0 +1,33 @@
+name: Verify hosted API repair
+on:
+  push:
+    branches: [codex/fix-vercel-handler]
+permissions:
+  contents: read
+jobs:
+  handler:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Inspect public health response
+        run: |
+          python - <<'PY'
+          from urllib.request import urlopen
+          from urllib.error import HTTPError
+          for path in ("/api/health", "/api/service?route=health"):
+              try:
+                  response = urlopen("https://context-lens-aaai.vercel.app" + path, timeout=30)
+              except HTTPError as error:
+                  response = error
+              with response:
+                  print(path, response.status, response.headers.get("content-type"), response.headers.get("x-vercel-error"))
+                  print(response.read(300).decode("utf-8", errors="replace"))
+          PY
+      - name: Test Vercel method dispatch
+        run: |
+          python -m pip install pytest==8.3.5
+          python -m pytest -q tests/test_vercel_handler.py --tb=short
