@@ -29,10 +29,10 @@ the action and the evidence boundary; the frame durations do not represent laten
 
 ### 1. Resolve an address and inspect its history
 
-![Enter an address, inspect road identities, and read dated events](docs/media/01-address.gif)
+![Enter an address, inspect road identities and events, and compare maps](docs/media/01-address.gif)
 
 **Annotations:** enter the old address and year; inspect road-name periods; open
-the dated event records. The era is a contextual hint, not a guarantee that every
+the dated event records; compare the archival scan with the modern map. The era is a contextual hint, not a guarantee that every
 displayed record belongs to that year.
 [Static fallback](docs/media/01-address.png)
 
