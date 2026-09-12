@@ -1,49 +1,48 @@
-# Data Card / Datasheet Draft
+# Data card
 
-## Dataset Purpose
+## Published snapshot
 
-This MVP uses a local evidence store to prototype the ContextLens historical investigation workflow. The intended production data source is Shanghai Library official open data accessed through the competition API key. If the live API is unavailable, transparent demo seed records keep the local presentation usable.
+data/processed/shlibrary_official_snapshot.json contains 154 normalized records.
+The metadata reports 93 source response files and generation on 2026-08-21.
 
-## Sources
+| Data family | Records |
+|---|---:|
+| Historic architectures | 71 |
+| Roads and place names | 45 |
+| Yearbook organizations | 23 |
+| Historical events | 10 |
+| Person authority | 5 |
+| Total | 154 |
 
-- Primary intended source: Shanghai Library Open Data API.
-- Current fallback source: transparent demo seed records in `app/sample_data.py`.
+Each record includes the raw record object, official URI, dataset, query term,
+retrieval timestamp, source payload hash, evidence ID, and normalization label.
+The complete 93 original HTTP-response files are not distributed separately.
+Their hashes therefore cannot all be recomputed from this repository alone.
+The snapshot itself can be byte-checked using scripts/demo_report.py.
 
-## Fields
+## Which data the demonstration uses
 
-- `record_id`
-- `title`
-- `snippet`
-- `source`
-- `source_uri`
-- `dataset`
-- `date`
-- `persons`
-- `places`
-- `topics`
-- `evidence_type`
-- `provenance_note`
-- `time_span`
-- `geo`
-- `public_tags`
-- `verification_notes`
-- `is_live_api`
-- retrieval score and matched terms are computed at query time
+The four-view address workflow uses source-linked curated road identities and
+place features bundled in app/place_investigation.py, supplemented by live APIs
+when configured locally. The separate legacy research interface indexes the
+154-record JSON snapshot. The collection total is not the number of matches
+returned for any query and is not a held-out evaluation set.
 
-## Demo Seed Coverage
+The old app/sample_data.py seed collection remains for legacy fallback behavior.
+Normal ingestion removes those seed records when the official snapshot is present.
+The hosted address adapter does not load seed records or call live/model services.
 
-The transparent seed set currently contains 54 records. It covers both the original Shanghai-and-world trade topic and public-facing use cases:
+## Limits and reuse
 
-- city-memory walks from old addresses, roads, buildings, old maps, and old photos;
-- family-memory tracing from genealogy, names, alumni lists, and old residences;
-- document-detective workflows for rare books, periodicals, archives, title records, seals, and inscriptions;
-- public-culture dossiers around writers, film, publishing, public life, and community exhibits.
-- mobility, education, healthcare, parks, exhibitions, labor history, transport, visual culture, directories, oral history, and urban governance.
+Official provider provenance does not certify historical truth. Curated records,
+date interpretations, aliases, and coordinates still need expert review. Not every
+place card carries the full snapshot lineage. Confidence values are heuristic.
 
-## Limitations
+The Apache-2.0 license covers project code; underlying library records, maps, and
+third-party assets retain their own rights and attribution requirements. Public
+access to a source URI should not be interpreted as an unrestricted reuse license.
+Review source-specific terms before redistributing further material.
 
-- Demo seed records are not a substitute for official API retrieval.
-- Source-passport metadata helps route review, but it does not itself certify historical truth.
-- External submission should re-run live API ingestion and manually review citations.
-- The prototype is educational and does not provide financial, legal, trading, regulatory, or payment-implementation advice.
-- The MVP builds a retrieval/audit layer. It does not fine-tune a model in v0.1.
+Historical scans and modern map tiles are external assets. The bundled local
+evidence flow works without library/model keys; fresh map imagery and original
+source pages require network access.

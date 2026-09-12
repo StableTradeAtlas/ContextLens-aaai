@@ -65,7 +65,57 @@ app.innerHTML = `
 const state: {lang: Lang; view: View; candidate: Candidate | null; result: InvestigationResult | null; map: MapLibreMap | null; jobId: string} = {lang:"zh", view:"identity", candidate:null, result:null, map:null, jobId:""};
 const $ = <T extends HTMLElement>(id:string) => document.getElementById(id) as T;
 const esc = (v:unknown) => String(v ?? "").replace(/[&<>'"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]!));
-const api = async (path:string, options?:RequestInit) => { const r=await fetch(path, options); const data=await r.json(); if(!r.ok) throw new Error(data.error||"Request failed"); return data; };
+let serviceStatus: "checking" | "online" | "offline" = "checking";
+
+function renderServiceStatus() {
+  const en = state.lang === "en";
+  $("statusDot").classList.toggle("ok", serviceStatus === "online");
+  $("serviceText").textContent = serviceStatus === "offline"
+    ? (en ? "Evidence service offline" : "证据服务离线")
+    : serviceStatus === "checking"
+      ? (en ? "Connecting to evidence service…" : "正在连接证据服务…")
+      : (en ? "Official Shanghai Library data" : "上海图书馆官方数据");
+}
+
+class ServiceUnavailableError extends Error {}
+
+function serviceUnavailable() {
+  serviceStatus = "offline";
+  renderServiceStatus();
+  return new ServiceUnavailableError(state.lang === "en"
+    ? "Evidence service is temporarily unavailable. Please try again shortly."
+    : "证据服务暂时不可用，请稍后重试。");
+}
+
+const api = async (path:string, options?:RequestInit) => {
+  let response: Response;
+  try {
+    response = await fetch(path, options);
+  } catch {
+    throw serviceUnavailable();
+  }
+  // Platform errors may be plain text or HTML, including successful fallback pages.
+  if (!response.headers.get("content-type")?.includes("application/json")) {
+    throw serviceUnavailable();
+  }
+  let data;
+  try {
+    data = await response.json();
+  } catch {
+    throw serviceUnavailable();
+  }
+  if (!data || typeof data !== "object" || Array.isArray(data)) {
+    throw serviceUnavailable();
+  }
+  if (!response.ok) {
+    if (response.status >= 500) throw serviceUnavailable();
+    throw new Error(typeof data.error === "string" ? data.error
+      : state.lang === "en" ? "Request failed." : "请求失败。");
+  }
+  serviceStatus = "online";
+  renderServiceStatus();
+  return data;
+};
 const toast = (text:string) => { $("toast").textContent=text; $("toast").classList.add("open"); setTimeout(()=>$("toast").classList.remove("open"),2400); };
 
 const ui = {
@@ -150,7 +200,7 @@ function setLanguage() {
   $("langBtn").textContent=en?"ZH":"EN";
   $("langBtn").setAttribute("aria-label",en?"Switch to Chinese":"Switch to English");
   $("brandMark").textContent=en?"CL":"文"; $("brandName").textContent=en?"ContextLens":"文脉镜 ContextLens";
-  $("serviceText").textContent=en?"Official Shanghai Library data":"上海图书馆官方数据";
+  renderServiceStatus();
   $("methodBtn").textContent=en?"Method":"方法";
   $("backBtn").textContent=en?"← New search":"← 新建调查";
   $("printBtn").textContent=en?"Print / save PDF":"打印 / 保存 PDF";
@@ -186,19 +236,21 @@ async function resolveAddress(address:string, era:string){
     $("candidateBox").classList.add("open"); $("candidateMessage").textContent=state.lang==="en"?"This input may refer to more than one place. Please confirm:":"这个输入可能对应多个地点，请确认：";
     $("candidateList").innerHTML=data.candidates.map((c:Candidate)=>`<button class="candidate" data-id="${esc(c.candidate_id)}" data-zh-name="${esc(c.display_name)}" data-zh-reason="${esc(c.match_reason)}"><span><b>${esc(dataText(c.display_name,undefined,"Shanghai address"))}</b><small>${esc(dataText(c.match_reason,undefined,"Candidate selected from the Shanghai Library road authority records."))}</small></span><strong>${Math.round(c.confidence*100)}%</strong></button>`).join("");
     $("candidateList").querySelectorAll<HTMLButtonElement>(".candidate").forEach((btn,i)=>btn.onclick=()=>investigate(apiAddress,apiEra,data.candidates[i]));
-  }catch(e){hideProgress();toast(state.lang==="en"?"Address resolution failed.":(e instanceof Error?e.message:"地址解析失败"));}
+  }catch(e){hideProgress();toast(e instanceof ServiceUnavailableError ? e.message : state.lang==="en"?"Address resolution failed.":(e instanceof Error?e.message:"地址解析失败"));}
 }
 
 async function investigate(address:string,era:string,candidate:Candidate){
   state.candidate=candidate; showProgress(); $("progressTitle").textContent=state.lang==="en"?"Building the address dossier":"正在建立地址档案"; $("progressText").textContent=state.lang==="en"?"Keeping only place-specific records that link back to a source.":"只保留与地点直接相关且可返回来源的记录。";
   try{
     const job=await api("/api/investigations",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({address,era_hint:era,candidate,allow_live:true,language:state.lang})}); state.jobId=job.id;
+    // Hosted investigations finish in one request; the local server keeps its progress API.
+    if(job.status==="complete" && job.result){state.result=job.result;hideProgress();openDossier();return;}
     for(let i=0;i<80;i++){
       const current=await api(`/api/investigations/${job.id}`); $("progressBar").style.width=`${Math.max(18,current.progress||i*2)}%`; if(current.message&&state.lang==="zh") $("progressText").textContent=current.message;
       if(current.status==="complete"){state.result=current.result;hideProgress();openDossier();return;} if(current.status==="failed") throw new Error(current.error||"调查失败"); await new Promise(r=>setTimeout(r,180));
     }
     throw new Error("调查超时");
-  }catch(e){hideProgress();toast(state.lang==="en"?"The investigation could not be completed.":(e instanceof Error?e.message:"调查失败"));}
+  }catch(e){hideProgress();toast(e instanceof ServiceUnavailableError ? e.message : state.lang==="en"?"The investigation could not be completed.":(e instanceof Error?e.message:"调查失败"));}
 }
 
 function openDossier(){
@@ -234,7 +286,7 @@ function atlasView(){
 
 function sourcesView(){
   const evidence=state.result!.evidence||[], en=state.lang==="en";
-    return `<div class="section-intro source-intro"><div><p class="answer-label">ANSWER 04 · SOURCE RECEIPT</p><h2>${evidence.length} ${en?"evidence records, each linked to its source.":"条证据，每条都能回到来源。"}</h2><p>${en?"Official records and public supplementary sources are identified separately; collection size is never presented as the number of matches.":"官方记录与辅助公开来源分开标识；查询规模不冒充本次命中数量。"}</p></div><div class="source-score"><b>${state.result!.quality?.source_count||0}</b><span>${en?"openable sources":"可打开来源"}</span></div></div><div class="source-table"><div class="source-row source-head"><span>${en?"Record":"记录"}</span><span>${en?"Dataset / period":"数据集 / 年代"}</span><span>${en?"Source status":"来源状态"}</span><span></span></div>${evidence.map((e:any)=>`<article class="source-row"><span><b>${esc(dataText(e.source_title||e.title,e.source_title_en||e.title_en,"Shanghai Library source record"))}</b><small>${esc(dataText(e.description||e.snippet||"",e.description_en||e.snippet_en,"Original Chinese source record; use the source passport to open the full record."))}</small></span><span>${esc(dataText(e.dataset_label||e.dataset||e.source_title||"开放数据",e.dataset_label_en||e.dataset_en,"Open data"))}<small>${esc(dataText(e.time_label||e.date||"年代待考",e.time_label_en,"Date under review"))}</small></span><span><i></i>${en?(e.source_mode==="live_api"?"Live official API":e.source_mode==="reviewed_official_snapshot"?"Reviewed official snapshot":"Public supplementary source"):(e.source_mode==="live_api"?"实时官方接口":e.source_mode==="reviewed_official_snapshot"?"已核验官方快照":"公开辅助来源")}</span><button data-evidence="${esc(e.evidence_id||e.record_id)}">${en?"Source passport":"来源护照"} →</button></article>`).join("")}</div>`;
+    return `<div class="section-intro source-intro"><div><p class="answer-label">ANSWER 04 · SOURCE RECEIPT</p><h2>${evidence.length} ${en?"evidence records, each linked to its source.":"条证据，每条都能回到来源。"}</h2><p>${en?"Official records and public supplementary sources are identified separately; collection size is never presented as the number of matches.":"官方记录与辅助公开来源分开标识；查询规模不冒充本次命中数量。"}</p></div><div class="source-score"><b>${state.result!.quality?.source_count||0}</b><span>${en?"claim-supporting sources":"主张支撑来源"}</span></div></div><div class="source-table"><div class="source-row source-head"><span>${en?"Record":"记录"}</span><span>${en?"Dataset / period":"数据集 / 年代"}</span><span>${en?"Source status":"来源状态"}</span><span></span></div>${evidence.map((e:any)=>`<article class="source-row"><span><b>${esc(dataText(e.source_title||e.title,e.source_title_en||e.title_en,"Shanghai Library source record"))}</b><small>${esc(dataText(e.description||e.snippet||"",e.description_en||e.snippet_en,"Original Chinese source record; use the source passport to open the full record."))}</small></span><span>${esc(dataText(e.dataset_label||e.dataset||e.source_title||"开放数据",e.dataset_label_en||e.dataset_en,"Open data"))}<small>${esc(dataText(e.time_label||e.date||"年代待考",e.time_label_en,"Date under review"))}</small></span><span><i></i>${en?(e.source_mode==="live_api"?"Live official API":e.source_mode==="reviewed_official_snapshot"?"Reviewed official snapshot":"Public supplementary source"):(e.source_mode==="live_api"?"实时官方接口":e.source_mode==="reviewed_official_snapshot"?"已核验官方快照":"公开辅助来源")}</span><button data-evidence="${esc(e.evidence_id||e.record_id)}">${en?"Source passport":"来源护照"} →</button></article>`).join("")}</div>`;
 }
 
 function questionBlock(){const en=state.lang==="en";return `<section class="questions"><div><p class="answer-label">THREE USEFUL QUESTIONS</p><h2>${en?"Questions come from this dossier,<br>not from generic chat.":"问题由当前档案决定，<br>不是泛泛聊天。"}</h2></div><div><button data-question="names"><b>01</b><span>${en?"Why did this road change names?":"这条路为什么改名？"}<small>${en?"Uses only road identity and dated names":"只使用道路身份和名称年代回答"}</small></span></button><button data-question="event"><b>02</b><span>${en?"What happened at this address?":"这个门牌发生过什么？"}<small>${en?"Uses only direct place-event evidence":"只使用直接地点事件回答"}</small></span></button><button data-question="limits"><b>03</b><span>${en?"What remains unknown?":"哪些内容仍然不知道？"}<small>${en?"Shows gaps in time, space, and sources":"显示时间、空间和来源空白"}</small></span></button></div></section>`;}
@@ -273,4 +325,9 @@ $("brandBtn").onclick=()=>$("backBtn").click(); $("langBtn").onclick=()=>{state.
 $("methodBtn").onclick=()=>openModal(state.lang==="en"?`<p class="answer-label">PRODUCT METHOD</p><h2>One address, four answers.</h2><ol class="method-list"><li><b>Address identity</b><span>Separate historic road name, house number, and period while preserving ambiguity.</span></li><li><b>Place events</b><span>Link only events and buildings that directly name this place.</span></li><li><b>Then and now</b><span>Place the historical original beside the modern map without fabricating a precise overlay.</span></li><li><b>Source passport</b><span>Return the provider, dataset, URI, and normalization record for every claim.</span></li></ol>`:`<p class="answer-label">PRODUCT METHOD</p><h2>一个地址，四个答案。</h2><ol class="method-list"><li><b>地址身份</b><span>拆分旧路名、门牌与年代，并保留歧义。</span></li><li><b>地点事件</b><span>只连接直接出现该地点的事件和建筑。</span></li><li><b>古今位置</b><span>历史原图与现代地图并排，不伪造精确叠加。</span></li><li><b>来源护照</b><span>每条主张返回提供方、数据集、URI与标准化记录。</span></li></ol>`);
 $("printBtn").onclick=()=>window.print(); $("downloadBtn").onclick=downloadEvidence; $("modalClose").onclick=closeModal; $("modalBackdrop").onclick=closeModal;
 $("heroArchiveImg").addEventListener("error",()=>document.querySelector(".archive-hero")?.classList.add("image-failed"));
-fetch("/api/health").then(r=>r.json()).then(h=>{$("officialCount").textContent=String(h.official_records||0);$("statusDot").classList.toggle("ok",h.ok&&!h.demo_seed_active);}).catch(()=>$("serviceText").textContent=state.lang==="en"?"Evidence service offline":"证据服务离线");
+renderServiceStatus();
+api("/api/health").then(h=>{
+  $("officialCount").textContent=String(h.official_records||0);
+  serviceStatus=h.ok&&!h.demo_seed_active ? "online" : "offline";
+  renderServiceStatus();
+}).catch(()=>{ serviceStatus="offline"; renderServiceStatus(); });

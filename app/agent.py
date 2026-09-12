@@ -1737,7 +1737,7 @@ def build_counter_evidence_report(
         items.append(counter_item(
             "weak_support",
             "弱相关证据" if language == "zh" else "Weak Support",
-            f"{len(weak_cards)} 张证据卡被判定为弱相关，正式提交前应替换或降权。" if language == "zh" else f"{len(weak_cards)} evidence cards are weakly related and should be replaced or down-weighted before submission.",
+            f"{len(weak_cards)} 张证据卡被判定为弱相关，使用结论前应替换或降权。" if language == "zh" else f"{len(weak_cards)} evidence cards are weakly related and should be replaced or down-weighted before relying on the result.",
             "medium",
             [],
             [card.get("record_id", "") for card in weak_cards],
@@ -2399,7 +2399,7 @@ def build_quality_gates(
             quality_gate("source_diversity", "来源多样性", "pass" if source_diversity >= 2 else "review", f"本次使用 {source_diversity} 类数据集；正式展示建议至少覆盖 2 类来源。", language),
             quality_gate("public_reuse", "公众复用入口", "pass" if public_tags >= 2 else "review", f"本次命中 {public_tags} 类公众标签；建议让线索可转化为城市漫游、家族记忆或文献侦探入口。", language),
             quality_gate("counter_evidence", "反证与空白", "review" if conflicts else "pass", f"发现 {conflicts} 个中高优先级证据边界。", language),
-            quality_gate("live_replacement", "官方数据覆盖", "pass" if live_percentage > 0 else "review", f"已核验官方来源占比 {live_percentage}%；demo seed 需在提交前全部替换。", language),
+            quality_gate("live_replacement", "官方数据覆盖", "pass" if live_percentage > 0 else "review", f"已核验官方来源占比 {live_percentage}%；demo seed 需在使用前全部核实。", language),
             quality_gate("spatial_precision", "空间精度", "review" if geocode_needed else "pass", "地图展示前需要完成历史地名到现代坐标的复核。", language),
         ]
     return [
@@ -2407,7 +2407,7 @@ def build_quality_gates(
         quality_gate("source_diversity", "Source Diversity", "pass" if source_diversity >= 2 else "review", f"This run used {source_diversity} dataset families; formal use should cover at least two.", language),
         quality_gate("public_reuse", "Public Reuse Entry", "pass" if public_tags >= 2 else "review", f"This run matched {public_tags} public-use tags; try to make the clue usable as a city walk, family-memory, or document-detective entry.", language),
         quality_gate("counter_evidence", "Counter-Evidence and Gaps", "review" if conflicts else "pass", f"Found {conflicts} medium/high evidence boundaries.", language),
-        quality_gate("live_replacement", "Official Data Coverage", "pass" if live_percentage > 0 else "review", f"Verified official-source ratio is {live_percentage}%; replace all demo seeds before submission.", language),
+        quality_gate("live_replacement", "Official Data Coverage", "pass" if live_percentage > 0 else "review", f"Verified official-source ratio is {live_percentage}%; replace all demo seeds before relying on the result.", language),
         quality_gate("spatial_precision", "Spatial Precision", "review" if geocode_needed else "pass", "Map publication requires historical-to-modern place verification.", language),
     ]
 
@@ -2479,13 +2479,13 @@ def build_professional_briefing(
             },
             {
                 "key": "submissionRisks",
-                "title": "提交前风险",
+                "title": "证据使用边界",
                 "body": f"Live API 占比为 {live_ratio}%；{risk_text}",
             },
             {
                 "key": "curatorialPitch",
                 "title": "展陈表达",
-                "body": f"建议用「一条线索如何变成可追溯历史档案」来讲：先展示一句话发现，再展示证据图谱、主张台账、反证空白和数据使用收据。当前评审就绪度为 {award_score}/100。",
+                "body": f"档案包含一句话发现、证据图谱、主张台账、反证空白和数据使用收据。启发式原型诊断评分为 {award_score}/100。",
             },
         ]
     risk_text = "the main remaining risk is manual review of the top three source titles, dates, and collection types."
@@ -2518,13 +2518,13 @@ def build_professional_briefing(
         },
         {
             "key": "submissionRisks",
-            "title": "Submission Risks",
+            "title": "Evidence-use Limits",
             "body": f"Live API ratio is {live_ratio}%; {risk_text}",
         },
         {
             "key": "curatorialPitch",
             "title": "Curatorial Pitch",
-            "body": f"Present it as how one clue becomes a traceable historical dossier: finding, evidence graph, claim ledger, gaps, and data-use receipt. Award readiness is {award_score}/100.",
+            "body": f"The dossier links its finding, evidence graph, claim ledger, gaps, and data-use receipt. The heuristic prototype diagnostic score is {award_score}/100.",
         },
     ]
 
@@ -2630,9 +2630,9 @@ def build_award_readiness(
         overall = min(overall, 86)
     level = "excellent" if overall >= 82 else "strong" if overall >= 68 else "developing"
     if language == "zh":
-        summary = f"评审就绪度 {overall}/100（{readiness_level_label(level, language)}）：当前优势在于可追溯调查档案与公众入口；正式提交前优先完成官方来源人工复核和空间坐标复核。"
+        summary = f"原型诊断 {overall}/100（{readiness_level_label(level, language)}）：当前优势在于可追溯调查档案与公众入口；使用结论前优先完成官方来源人工复核和空间坐标复核。"
     else:
-        summary = f"Award readiness is {overall}/100 ({readiness_level_label(level, language)}): current strengths are traceable dossiers and public-use entry points; before submission, complete manual official-source and spatial verification."
+        summary = f"The heuristic prototype diagnostic score is {overall}/100 ({readiness_level_label(level, language)}): current strengths are traceable dossiers and public-use entry points; before relying on the result, complete manual official-source and spatial verification."
     return {
         "overall_score": overall,
         "level": level,
@@ -2907,7 +2907,7 @@ def analogy_boundary(language: str) -> str:
 def uncertainty_note(language: str) -> str:
     if language == "zh":
         return "对外提交前，应优先使用可追溯的上海图书馆官方记录，并对关键引用做人工复核。"
-    return "Before external submission, prioritize traceable official Shanghai Library records and manually review key citations."
+    return "Before relying on the result, prioritize traceable official Shanghai Library records and manually review key citations."
 
 
 def compliance_note(language: str) -> str:

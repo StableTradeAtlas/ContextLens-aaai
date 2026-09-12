@@ -1,0 +1,26 @@
+ContextLens (文脉镜)
+Copyright (c) the ContextLens team at StableTradeAtlas.
+
+Project authors, in order:
+  Shilin Ou
+  Sean Wan
+  Polina Postnikova
+  Yutian Wang
+  Luyao Zhang
+
+Organization repository:
+  https://github.com/StableTradeAtlas/ContextLens-aaai
+
+Original repository in the GitHub fork network:
+  https://github.com/Owen-1234/ContextLens
+
+This repository is derived from the StableTradeAtlas organization repository.
+Project copyright is attributed to the originating organization team.
+Contributor attribution is retained in the Git history.
+
+The project code and original documentation graphics are distributed under
+the Apache License, Version 2.0; see LICENSE.
+
+Third-party software retains its own copyright and license notices.
+Shanghai Library records, historical scans, and map assets retain their
+source-specific rights and attribution requirements; see docs/datasheet.md.

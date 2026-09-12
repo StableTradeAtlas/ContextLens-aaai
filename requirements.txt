@@ -1,6 +1,2 @@
-# Optional full demo stack. The core browser demo uses only the Python standard library.
-fastapi>=0.111
-uvicorn>=0.30
-streamlit>=1.36
-requests>=2.32
-
+# Core local demo and Vercel function use the Python standard library only.
+# Optional older interfaces: pip install -r requirements-optional.txt
