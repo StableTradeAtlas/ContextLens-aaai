@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="940" viewBox="0 0 1600 940" role="img" aria-labelledby="title desc" font-family="Arial, 'Noto Sans CJK SC', sans-serif">
+<title id="title">ContextLens: one historical address, four connected views, inspectable sources</title>
+<desc id="desc">Workflow schematic of the implemented Shanghai address demo. An address and era enter alias resolution. The resulting dossier connects Identity, Events, Atlas, and Sources. Users inspect Source Passports, open original records, download dossier JSON, and print. Ambiguous inputs require a choice; unsupported inputs remain unresolved. The era is a contextual hint, map precision is limited, and source traceability does not establish historical truth.</desc>
+<defs>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#100d24"/><stop offset=".55" stop-color="#10172b"/><stop offset="1" stop-color="#08252d"/></linearGradient>
+<linearGradient id="rule"><stop stop-color="#a987ff"/><stop offset="1" stop-color="#2de0ce"/></linearGradient>
+<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#91a2d7" stroke-opacity=".055"/></pattern>
+</defs>
+<rect x="0" y="0" width="1600" height="940" rx="24" fill="url(#bg)" stroke="none" />
+<rect x="0" y="0" width="1600" height="940" rx="24" fill="url(#grid)" stroke="none" />
+<path d="M1130 0 1040 140 1320 224 1600 102M0 666l253-160 311 224-176 210" fill="none" stroke="#9482dd" stroke-opacity=".09" stroke-width="2"/>
+<circle cx="82" cy="85" r="34" fill="#1c2141" stroke="#a68bff" stroke-width="2"/>
+<path d="M64 71h26v29H64zM70 78h14M70 84h9M70 90h8" fill="none" stroke="#38ded0" stroke-width="2"/>
+<circle cx="90" cy="91" r="12" fill="#1c2141" stroke="#d5c8ff" stroke-width="3"/>
+<path d="m99 100 9 9" stroke="#d5c8ff" stroke-width="4" stroke-linecap="round"/>
+<text x="132" y="98" font-size="54" fill="#f4f6ff" font-weight="700" data-max-width="510" >ContextLens</text>
+<text x="475" y="95" font-size="34" fill="#b59cff" font-weight="500" data-max-width="190" >文脉镜</text>
+<rect x="1227" y="55" width="325" height="46" rx="23" fill="#211e39" stroke="#776099" />
+<circle cx="1251" cy="78" r="5" fill="#ffd071"/>
+<text x="1267" y="85" font-size="18" fill="#e7ddff" font-weight="600" data-max-width="265" letter-spacing="1">RESEARCH PROTOTYPE</text>
+<text x="48" y="160" font-size="30" fill="#f4f6ff" font-weight="500" data-max-width="1504" >One old address. Four connected views. Sources you can inspect.</text>
+<path d="M48 184h1504" stroke="url(#rule)" stroke-width="2" opacity=".7"/>
+<rect x="48" y="216" width="326" height="492" rx="22" fill="#111d31" stroke="#268c92" stroke-width="1.6"/>
+<rect x="402" y="216" width="698" height="492" rx="22" fill="#191a34" stroke="#8a6fc6" stroke-width="1.6"/>
+<rect x="1128" y="216" width="424" height="492" rx="22" fill="#211f30" stroke="#a18a4e" stroke-width="1.6"/>
+<text x="70" y="256" font-size="19" fill="#38ded0" font-weight="700" data-max-width="282" letter-spacing="1.6">01  /  ASK</text>
+<text x="70" y="298" font-size="26" fill="#f4f6ff" font-weight="700" data-max-width="282" >Begin with an address</text>
+<text x="70" y="337" font-size="16" fill="#b7c2d8" font-weight="600" data-max-width="282" letter-spacing="1.4">OLD ADDRESS + ERA</text>
+<rect x="70" y="355" width="282" height="104" rx="12" fill="#0b1426" stroke="#335366" />
+<text x="88" y="394" font-size="25" fill="#f4f6ff" font-weight="600" data-max-width="246" >436 Avenue Joffre</text>
+<text x="88" y="429" font-size="21" fill="#38ded0" font-weight="500" data-max-width="246" >1934 · Shanghai</text>
+<text x="70" y="509" font-size="26" fill="#f4f6ff" font-weight="700" data-max-width="282" >Resolve aliases</text>
+<text x="70" y="545" font-size="22" fill="#b7c2d8" font-weight="400" data-max-width="282" >Connect historical and</text>
+<text x="70" y="575" font-size="22" fill="#b7c2d8" font-weight="400" data-max-width="282" >modern road names.</text>
+<path d="M70 598h282" stroke="#31445c"/>
+<text x="70" y="629" font-size="20" fill="#b7c2d8" font-weight="500" data-max-width="282" >Other query paths</text>
+<rect x="70" y="646" width="116" height="36" rx="18" fill="#103237" stroke="#267b7b" />
+<text x="128" y="670" font-size="18" fill="#38ded0" font-weight="600" data-max-width="96" text-anchor="middle">Choose</text>
+<rect x="196" y="646" width="156" height="36" rx="18" fill="#342b23" stroke="#846a3c" />
+<text x="274" y="670" font-size="18" fill="#ffd071" font-weight="600" data-max-width="136" text-anchor="middle">Unresolved</text>
+<path d="M380 458h15m-7-7 7 7-7 7" fill="none" stroke="#38ded0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="426" y="256" font-size="19" fill="#b59cff" font-weight="700" data-max-width="650" letter-spacing="1.6">02  /  EXPLORE</text>
+<text x="426" y="298" font-size="30" fill="#f4f6ff" font-weight="700" data-max-width="650" >Read one connected dossier</text>
+<rect x="426" y="328" width="313" height="153" rx="14" fill="#10182c" stroke="#38ded0" stroke-opacity=".55"/><g transform="translate(450 350) scale(0.95)" fill="none" stroke="#38ded0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 29S5 19 5 11a11 11 0 0 1 22 0c0 8-11 18-11 18Z"/><circle cx="16" cy="11" r="4"/></g><text x="496" y="376" font-size="27" fill="#f4f6ff" font-weight="700" data-max-width="219" >Identity</text><text x="450" y="422" font-size="22" fill="#f4f6ff" font-weight="400" data-max-width="265" >Old and modern names</text><text x="450" y="453" font-size="20" fill="#b7c2d8" font-weight="400" data-max-width="265" >Periods and candidates</text><rect x="763" y="328" width="313" height="153" rx="14" fill="#10182c" stroke="#b59cff" stroke-opacity=".55"/><g transform="translate(787 350) scale(0.95)" fill="none" stroke="#b59cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="13"/><path d="M16 7v9l6 4"/></g><text x="833" y="376" font-size="27" fill="#f4f6ff" font-weight="700" data-max-width="219" >Events</text><text x="787" y="422" font-size="22" fill="#f4f6ff" font-weight="400" data-max-width="265" >Dated historical records</text><text x="787" y="453" font-size="20" fill="#b7c2d8" font-weight="400" data-max-width="265" >Events and buildings</text><rect x="426" y="501" width="313" height="153" rx="14" fill="#10182c" stroke="#b59cff" stroke-opacity=".55"/><g transform="translate(450 523) scale(0.95)" fill="none" stroke="#b59cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 7 9-4 9 4 9-4v22l-9 4-9-4-9 4Z"/><path d="M12 3v22M21 7v22"/></g><text x="496" y="549" font-size="27" fill="#f4f6ff" font-weight="700" data-max-width="219" >Atlas</text><text x="450" y="595" font-size="22" fill="#f4f6ff" font-weight="400" data-max-width="265" >Then-and-now maps</text><text x="450" y="626" font-size="20" fill="#b7c2d8" font-weight="400" data-max-width="265" >Spatial uncertainty</text><rect x="763" y="501" width="313" height="153" rx="14" fill="#10182c" stroke="#38ded0" stroke-opacity=".55"/><g transform="translate(787 523) scale(0.95)" fill="none" stroke="#38ded0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="23" height="28" rx="3"/><path d="M11 10h11M11 16h11M11 22h7"/></g><text x="833" y="549" font-size="27" fill="#f4f6ff" font-weight="700" data-max-width="219" >Sources</text><text x="787" y="595" font-size="22" fill="#f4f6ff" font-weight="400" data-max-width="265" >Linked evidence cards</text><text x="787" y="626" font-size="20" fill="#b7c2d8" font-weight="400" data-max-width="265" >Original source records</text><text x="426" y="688" font-size="21" fill="#b7c2d8" font-weight="400" data-max-width="650" >Shared evidence IDs connect the dossier.</text>
+<path d="M1106 458h15m-7-7 7 7-7 7" fill="none" stroke="#b59cff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1152" y="256" font-size="19" fill="#ffd071" font-weight="700" data-max-width="376" letter-spacing="1.6">03  /  TRACE</text>
+<text x="1152" y="298" font-size="30" fill="#f4f6ff" font-weight="700" data-max-width="376" >Inspect the evidence</text>
+<rect x="1152" y="328" width="376" height="198" rx="14" fill="#141b2c" stroke="#79683f" />
+<g transform="translate(1176 349) scale(0.9)" fill="none" stroke="#ffd071" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="23" height="28" rx="3"/><path d="M11 10h11M11 16h11M11 22h7"/></g>
+<text x="1220" y="374" font-size="26" fill="#f4f6ff" font-weight="700" data-max-width="284" >Source Passport</text>
+<path d="M1176 395h328" stroke="#3d4250"/>
+<text x="1176" y="430" font-size="23" fill="#f4f6ff" font-weight="500" data-max-width="190" >Evidence ID</text>
+<text x="1504" y="430" font-size="19" fill="#b7c2d8" font-weight="400" data-max-width="112" text-anchor="end">linked</text>
+<text x="1176" y="468" font-size="23" fill="#f4f6ff" font-weight="500" data-max-width="190" >Source URI</text>
+<text x="1504" y="468" font-size="19" fill="#b7c2d8" font-weight="400" data-max-width="112" text-anchor="end">original</text>
+<text x="1176" y="506" font-size="23" fill="#f4f6ff" font-weight="500" data-max-width="190" >Provenance</text>
+<text x="1504" y="506" font-size="19" fill="#b7c2d8" font-weight="400" data-max-width="112" text-anchor="end">provider</text>
+<rect x="1152" y="545" width="376" height="53" rx="12" fill="#302a25" stroke="#8e743e" />
+<g transform="translate(1174 560) scale(0.7)" fill="none" stroke="#ffd071" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 3h11v11M29 3 13 19M12 5H4v24h24v-8"/></g>
+<text x="1210" y="579" font-size="23" fill="#f4f6ff" font-weight="500" data-max-width="292" >Open original source</text>
+<g transform="translate(1174 615) scale(0.7)" fill="none" stroke="#b59cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3v18m-7-7 7 7 7-7M4 24v6h24v-6"/></g>
+<text x="1210" y="634" font-size="23" fill="#f4f6ff" font-weight="500" data-max-width="292" >Download dossier JSON</text>
+<g transform="translate(1174 660) scale(0.7)" fill="none" stroke="#38ded0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 10V2h16v8M8 23H3V11h26v12h-5"/><path d="M8 19h16v12H8zM23 15h1"/></g>
+<text x="1210" y="679" font-size="23" fill="#f4f6ff" font-weight="500" data-max-width="292" >Print / save PDF</text>
+<rect x="48" y="738" width="1504" height="128" rx="20" fill="#0c1425" stroke="#354361" />
+<text x="70" y="766" font-size="16" fill="#b7c2d8" font-weight="700" data-max-width="1460" letter-spacing="1.8">EVIDENCE BOUNDARIES</text>
+<path d="M553 788v59M1062 788v59" stroke="#35405c"/>
+<text x="70" y="803" font-size="24" fill="#38ded0" font-weight="700" data-max-width="459" >Dates are context</text>
+<text x="70" y="839" font-size="21" fill="#b7c2d8" font-weight="400" data-max-width="459" >The era does not filter every record.</text>
+<text x="580" y="803" font-size="24" fill="#b59cff" font-weight="700" data-max-width="454" >Maps show orientation</text>
+<text x="580" y="839" font-size="21" fill="#b7c2d8" font-weight="400" data-max-width="454" >House-number precision stays uncertain.</text>
+<text x="1088" y="803" font-size="24" fill="#ffd071" font-weight="700" data-max-width="440" >Sources remain inspectable</text>
+<text x="1088" y="839" font-size="21" fill="#b7c2d8" font-weight="400" data-max-width="440" >Traceability is not proof of historical truth.</text>
+<text x="48" y="914" font-size="17" fill="#b7c2d8" font-weight="500" data-max-width="740" letter-spacing="1">IMPLEMENTED ADDRESS WORKFLOW · SCHEMATIC</text>
+<text x="1552" y="914" font-size="17" fill="#b7c2d8" font-weight="500" data-max-width="640" text-anchor="end" letter-spacing="1">BUNDLED EVIDENCE · LOCAL + VERCEL</text>
+</svg>

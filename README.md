@@ -1,11 +1,33 @@
-# 文脉镜 ContextLens
+<h1 align="center">文脉镜 · ContextLens</h1>
 
-**An inspectable Shanghai historical-address dossier.** Enter an old address and
-era, inspect its names and dated records, compare historical and modern maps, and
-follow the evidence back to its source.
+<p align="center"><strong>Explore Shanghai's past, one address at a time.</strong><br>
+Historical names · Dated records · Then-and-now maps · Inspectable sources</p>
 
-[Local launch](#local-launch) · [Deploy to Vercel](docs/VERCEL.md) ·
-[Reproduce the demo](docs/REPRODUCIBILITY.md) · [Data card](docs/datasheet.md)
+<p align="center">
+  <a href="docs/media/contextlens-teaser.svg"><img src="docs/media/contextlens-teaser.svg" alt="ContextLens workflow: enter a historical address and era, resolve aliases, explore Identity, Events, Atlas and Sources, then inspect Source Passports and export evidence. Ambiguity and evidence limits remain visible." width="1600"></a>
+</p>
+
+<p align="center"><em>One address becomes a connected dossier with a visible trail to its sources.</em><br>
+<a href="docs/media/contextlens-teaser.svg">Full-size SVG</a> · <a href="docs/media/contextlens-teaser.png">PNG</a> · <a href="docs/media/README.md">Figure and recording sources</a></p>
+
+<p align="center">
+  <a href="#local-launch"><img src="docs/media/badges/python.svg" alt="Python 3.11 or later"></a>
+  <a href="LICENSE"><img src="docs/media/badges/license.svg" alt="Code license: Apache-2.0"></a>
+  <a href="#one-address-four-views"><img src="docs/media/badges/language.svg" alt="Chinese and English interface"></a>
+  <a href="docs/VERCEL.md"><img src="docs/media/badges/vercel.svg" alt="Vercel deployment instructions"></a>
+  <a href="docs/REPRODUCIBILITY.md"><img src="docs/media/badges/reproduce.svg" alt="Reproduction instructions"></a>
+</p>
+
+<p align="center">
+  <a href="#local-launch">🚀 Launch locally</a> ·
+  <a href="#annotated-walkthrough">▶️ Watch the walkthrough</a> ·
+  <a href="#software-architecture">🧩 Architecture</a> ·
+  <a href="#data-and-provenance">📚 Data and provenance</a>
+</p>
+
+Enter an old address and era, inspect its names and dated records, compare historical
+and modern maps, and follow the evidence back to its source. The teaser shows the
+implemented address workflow; the recordings below show the running interface.
 
 ## One address, four views
 
@@ -58,6 +80,12 @@ address produces an unresolved result.
 [Static fallback](docs/media/03-boundaries.png)
 
 The [demo walkthrough](docs/demo_walkthrough.md) follows the same sequence.
+
+| Step | Action | What to inspect |
+|---|---|---|
+| 🔎 Resolve | Enter an address and era; confirm a candidate if needed. | Historical and modern names, dated records, and both map views. |
+| 📑 Trace | Open a Source Passport, then download the dossier. | Evidence identifiers, original URIs, and claim-to-evidence links. |
+| 🧭 Check limits | Try the ambiguous and unsupported examples. | A candidate choice or an unresolved result when a unique match is unavailable. |
 
 ## Software architecture
 
