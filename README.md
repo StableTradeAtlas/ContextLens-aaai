@@ -4,6 +4,15 @@
 Historical names · Dated records · Then-and-now maps · Inspectable sources</p>
 
 <p align="center">
+  <a href="https://openreview.net/profile?id=~Shilin_Ou1">Shilin Ou</a> ·
+  <a href="https://openreview.net/profile?id=~Sean_Wan1">Sean Wan</a> ·
+  <a href="https://openreview.net/profile?id=~Polina_Postnikova1">Polina Postnikova</a> ·
+  <a href="https://openreview.net/profile?id=~Yutian_Wang3">Yutian Wang</a> ·
+  <a href="https://openreview.net/profile?id=~Luyao_Zhang1">Luyao Zhang</a>
+  <br><a href="https://github.com/StableTradeAtlas/ContextLens-aaai">StableTradeAtlas · ContextLens team</a>
+</p>
+
+<p align="center">
   <a href="docs/media/contextlens-teaser.svg"><img src="docs/media/contextlens-teaser.svg" alt="ContextLens workflow: enter a historical address and era, resolve aliases, explore Identity, Events, Atlas and Sources, then inspect Source Passports and export evidence. Ambiguity and evidence limits remain visible." width="1600"></a>
 </p>
 
@@ -200,6 +209,10 @@ dates, source adequacy, and coarse coordinates remains necessary. The public
 adapter does not retain address queries in application logs or call a model.
 Hosting providers and external map/source services may process ordinary access
 metadata.
+
+Copyright © the **ContextLens team at StableTradeAtlas**. This repository is a fork of
+the organization's [ContextLens-aaai repository](https://github.com/StableTradeAtlas/ContextLens-aaai).
+See [NOTICE](NOTICE) for the author list and repository provenance.
 
 Code is licensed under [Apache-2.0](LICENSE). Shanghai Library records and map
 assets retain their source-specific rights and attribution requirements.

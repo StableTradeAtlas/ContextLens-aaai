@@ -39,6 +39,9 @@ README links so they travel with repository copies. They identify the supported
 Python version, code license, interface languages, and deployment and reproduction
 guides. They do not report deployment status, test results, or a security certification.
 
+Copyright © the ContextLens team at StableTradeAtlas. Project authors and repository
+provenance are recorded in [NOTICE](../../NOTICE).
+
 Original documentation graphics are covered by the repository's
 [Apache-2.0 code license](../../LICENSE). The source-specific rights for records,
 historical scans, and map tiles remain as described in the [data card](../datasheet.md).
