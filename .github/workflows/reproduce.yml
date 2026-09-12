@@ -43,6 +43,7 @@ jobs:
       - name: Install browser and record actual walkthrough states
         run: |
           python -m playwright install --with-deps chromium
+          python scripts/check_browser.py
           python scripts/capture_walkthrough.py
       - name: Upload reproducibility evidence and walkthroughs
         if: always()

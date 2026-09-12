@@ -8,26 +8,72 @@ jobs:
   handler:
     runs-on: ubuntu-latest
     timeout-minutes: 8
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Inspect public health response
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+      - name: Build and test the repaired API and browser
+        run: |
+          python -m pip install -r requirements-dev.txt
+          npm ci
+          npm run check
+          npm run build
+          python scripts/prepare_vercel.py
+          python -m pytest -q
+          python -m playwright install --with-deps chromium
+          python scripts/check_browser.py
+      - name: Save the tested frontend bundle
+        env:
+          SOURCE_COMMIT: ${{ github.sha }}
+        run: |
+          git fetch origin codex/fix-vercel-handler
+          if [ "$(git rev-parse FETCH_HEAD)" != "$SOURCE_COMMIT" ]; then
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/static
+          if ! git diff --cached --quiet; then
+            git commit -m "Rebuild frontend with bilingual API failure handling"
+            git push origin HEAD:codex/fix-vercel-handler
+          fi
+  hosted:
+    needs: handler
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Wait for the production API repair
         run: |
           python - <<'PY'
+          import json
+          import time
           from urllib.request import urlopen
-          from urllib.error import HTTPError
-          for path in ("/api/health", "/api/service?route=health"):
+          for attempt in range(30):
               try:
-                  response = urlopen("https://context-lens-aaai.vercel.app" + path, timeout=30)
-              except HTTPError as error:
-                  response = error
-              with response:
-                  print(path, response.status, response.headers.get("content-type"), response.headers.get("x-vercel-error"))
-                  print(response.read(300).decode("utf-8", errors="replace"))
+                  with urlopen("https://context-lens-aaai.vercel.app/api/health", timeout=15) as response:
+                      body = json.load(response)
+                      assert body["ok"] and body["official_records"] == 154
+                  print("PASS: production health returns JSON with 154 records", flush=True)
+                  break
+              except Exception as error:
+                  print(f"Waiting for production update ({attempt + 1}): {type(error).__name__}", flush=True)
+                  time.sleep(10)
+          else:
+              raise SystemExit("Production API did not recover")
           PY
-      - name: Test Vercel method dispatch
+      - name: Verify the public Chinese and English interface
         run: |
-          python -m pip install pytest==8.3.5
-          python -m pytest -q tests/test_vercel_handler.py --tb=short
+          python -m pip install -r requirements-dev.txt
+          python -m playwright install --with-deps chromium
+          python scripts/check_browser.py --base-url https://context-lens-aaai.vercel.app

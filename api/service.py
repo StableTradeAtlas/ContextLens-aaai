@@ -12,12 +12,13 @@ MAX_BODY = 24_000
 
 class handler(BaseHTTPRequestHandler):
     def do_GET(self) -> None:
-        self.handle_request()
+        self.process_api_request()
 
     def do_POST(self) -> None:
-        self.handle_request()
+        self.process_api_request()
 
-    def handle_request(self) -> None:
+    # Vercel reserves handle_request for its own method dispatcher.
+    def process_api_request(self) -> None:
         parsed = urlsplit(self.path)
         # Vercel rewrites /api/:path* to this function and preserves the route here.
         routed = parse_qs(parsed.query).get("route", [""])[0]

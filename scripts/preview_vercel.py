@@ -16,12 +16,12 @@ from api.service import handler as APIHandler
 class PreviewHandler(SimpleHTTPRequestHandler):
     def do_GET(self):
         if self.path.startswith("/api/"):
-            APIHandler.handle_request(self)
+            APIHandler.process_api_request(self)
         else:
             super().do_GET()
 
     def do_POST(self):
-        APIHandler.handle_request(self)
+        APIHandler.process_api_request(self)
 
     respond = APIHandler.respond
     log_message = APIHandler.log_message
