@@ -43,10 +43,13 @@ def record(page, stem, number, caption, selector=None):
         el.style.removeProperty('outline'); delete el.dataset.captureHighlight;
       });
       // Keep the selected state above the annotation and reset action-induced scroll.
+      document.body.style.paddingBottom='110px';
       if(args.selector !== '#modal'){
         const target=document.querySelector(args.selector || 'body');
         const top=args.selector === '#candidateBox' && target
-          ? Math.max(0, window.scrollY + target.getBoundingClientRect().top - 180) : 0;
+          ? Math.max(0, window.scrollY + target.getBoundingClientRect().top - 180)
+          : args.selector === '#viewPanel' && target
+            ? Math.max(0, window.scrollY + target.getBoundingClientRect().top - 95) : 0;
         window.scrollTo({top,behavior:'instant'});
       }
       const label=document.createElement('div');
@@ -71,8 +74,7 @@ def gif(stem, frames):
     images[0].save(OUT / f"{stem}.gif", save_all=True, append_images=images[1:],
                    duration=1900, loop=0, optimize=True, disposal=2)
     # Keep only one static fallback per GIF.
-    with Image.open(frames[-1]) as im:
-        im.save(OUT / f"{stem}.png")
+    images[-1].save(OUT / f"{stem}.png", optimize=True)
     for path in frames:
         path.unlink()
 
@@ -101,6 +103,7 @@ def main():
               const failed=document.querySelector('#mapFail');
               return scan?.complete && (canvas || (failed && getComputedStyle(failed).display !== 'none'));
             }""", timeout=8000)
+            page.wait_for_load_state("networkidle", timeout=15000)
         except Exception:
             pass
         frames.append(record(page,"01-address",4,"4. Compare archival and modern maps; the scan does not establish an exact house number.","#viewPanel"))

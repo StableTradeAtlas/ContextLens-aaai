@@ -152,7 +152,7 @@ Suggested acceptance table:
 |---|---|---|
 | 436 Avenue Joffre | 1934 | One resolved candidate; six name entries; three timeline nodes; four evidence cards; two direct-claim entries with different scopes |
 | 20 The Bund | 1930s | One resolved candidate; two timeline nodes; two evidence cards |
-| Nanjing Road department store | 1930s | Two candidates requiring confirmation |
+| Nanjing Road department store | 1940s | Two candidates requiring confirmation |
 | 9999 Mars Road | 1934 | Unresolved; no invented dossier |
 
 Use [reproducibility/demo-report.json](../reproducibility/demo-report.json) for
