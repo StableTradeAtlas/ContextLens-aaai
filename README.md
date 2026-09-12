@@ -36,6 +36,10 @@ the dated event records; compare the archival scan with the modern map. The era 
 displayed record belongs to that year.
 [Static fallback](docs/media/01-address.png)
 
+**Recording boundary:** the archival scan loaded in CI, but the external modern
+basemap did not render in this recording. The Atlas frame shows that actual state;
+check the online basemap separately on the deployed site.
+
 ### 2. Inspect a Source Passport and export evidence
 
 ![Open the Sources view, inspect provenance, and download dossier JSON](docs/media/02-evidence.gif)
