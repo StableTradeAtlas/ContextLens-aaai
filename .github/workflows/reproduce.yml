@@ -1,0 +1,93 @@
+name: Reproduce demo
+on:
+  push:
+    branches: [main, codex/aaai27-repro-vercel]
+    paths-ignore: ["docs/media/**", "reproducibility/**"]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      CONTEXTLENS_RUNTIME_DIR: /tmp/contextlens-ci
+      CONTEXTLENS_USE_LIVE_API: "0"
+      CONTEXTLENS_USE_DEEPSEEK: "0"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+      - name: Install pinned development tools
+        run: |
+          python -m pip install -r requirements-dev.txt
+          npm ci
+      - name: Validate and build the interface
+        run: |
+          npm run check
+          npm run build
+          python scripts/prepare_vercel.py
+      - name: Run all discovered tests and acceptance cases
+        run: |
+          python -m pytest -q --junitxml=reproducibility/pytest.xml
+          python scripts/demo_report.py
+      - name: Install browser and record actual walkthrough states
+        run: |
+          python -m playwright install --with-deps chromium
+          python scripts/capture_walkthrough.py
+      - name: Upload reproducibility evidence and walkthroughs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: contextlens-reproduction
+          path: |
+            reproducibility/
+            docs/media/
+            app/static/
+          if-no-files-found: warn
+
+  publish-preview-assets:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/codex/aaai27-repro-vercel'
+    needs: reproduce
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/aaai27-repro-vercel
+      - name: Check that the source branch has not changed
+        id: head
+        env:
+          SOURCE_COMMIT: ${{ github.sha }}
+        run: |
+          if [ "$(git rev-parse HEAD)" = "$SOURCE_COMMIT" ]; then
+            echo "current=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Replace generated frontend assets
+        if: steps.head.outputs.current == 'true'
+        run: git rm -r app/static
+      - uses: actions/download-artifact@v4
+        if: steps.head.outputs.current == 'true'
+        with:
+          name: contextlens-reproduction
+          path: .
+      - name: Save verified walkthroughs and bundled interface on the proposal branch
+        if: steps.head.outputs.current == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/static docs/media reproducibility
+          if ! git diff --cached --quiet; then
+            git commit -m "Record verified demo walkthroughs and acceptance outputs [skip ci]"
+            git push origin HEAD:codex/aaai27-repro-vercel
+          fi
