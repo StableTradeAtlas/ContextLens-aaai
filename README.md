@@ -8,7 +8,7 @@ Turn one historical Shanghai address into four source-backed answers:
 **what it was called, what happened there, where it is today, and which record supports every claim.**
 
 <p>
-  <img alt="Python 3.10+" src="https://img.shields.io/badge/Python-3.10%2B-17384E?style=for-the-badge&logo=python&logoColor=white">
+  <img alt="Python 3.11+" src="https://img.shields.io/badge/Python-3.11%2B-17384E?style=for-the-badge&logo=python&logoColor=white">
   <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-7-2F7B73?style=for-the-badge&logo=typescript&logoColor=white">
   <img alt="Shanghai Library data" src="https://img.shields.io/badge/Shanghai_Library-Official_Data-B64B38?style=for-the-badge">
   <img alt="Demo records" src="https://img.shields.io/badge/Demo_Records-0-C59A4A?style=for-the-badge">
@@ -122,7 +122,7 @@ flowchart LR
 
 ### One-click local launch
 
-Requirements: **Python 3.10 or newer**. The packaged product does not require a Shanghai Library API key, a model key, or Node.js.
+Requirements: **Python 3.11 or newer**. The packaged product does not require a Shanghai Library API key, a model key, or Node.js.
 
 | Platform | Launch method |
 |---|---|
@@ -130,12 +130,10 @@ Requirements: **Python 3.10 or newer**. The packaged product does not require a 
 | Windows | Double-click `START_HERE_WINDOWS.bat` |
 | Linux | Run `./START_HERE_LINUX.sh` |
 
-Or start it from a terminal:
+Or start it from a terminal opened in the extracted project folder:
 
 ```bash
-git clone https://github.com/StableTradeAtlas/ContextLens.git
-cd ContextLens
-./start-contextlens
+python3 start.py
 ```
 
 Open [http://127.0.0.1:8765](http://127.0.0.1:8765). Stop the service with `Ctrl+C`.
@@ -238,13 +236,6 @@ The tests cover old-name resolution, ambiguity, negative cases, source lineage, 
 - Optional model assistance is not required for the core product.
 - ContextLens is a public-history research prototype, not legal, financial, or regulatory advice.
 
-## ✦ Competition Direction
-
-ContextLens is being developed for the Shanghai Library Open Data Contest around one proposition:
-
-> **A historical address should become a replayable, contestable, and traceable investigation—not an AI-generated anecdote.**
-
-The product is designed to demonstrate innovation, feasibility, technical depth, interaction quality, and meaningful use of open data through one complete and understandable public workflow.
 
 ---
 

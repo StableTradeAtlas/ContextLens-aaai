@@ -51,7 +51,7 @@ def audit_answer(question: str, answer: dict, evidence: list[RetrievalResult], l
     if uncertainty == "needs_verified_official_data":
         warnings.append("Current evidence lacks verified official records; keep conclusions exploratory.")
     elif uncertainty == "mixed_live_and_seed":
-        warnings.append("Answer combines live API records with demo seed records. Prefer all-live evidence for final submission.")
+        warnings.append("Answer combines live API records with demo seed records. Prefer all-live evidence before use.")
     return {
         "citation_check": "pass" if has_citations else "review",
         "citation_coverage": citation_coverage,

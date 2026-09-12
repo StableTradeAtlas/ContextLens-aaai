@@ -28,7 +28,7 @@ def seed_record(
 ) -> EvidenceRecord:
     tags = public_tags or ["library_open_data"]
     notes = verification_notes or [
-        "Demo seed record only; replace with live Shanghai Library API evidence before final submission.",
+        "Demo seed record only; replace with live Shanghai Library API evidence before use.",
         "Open the local source page and verify the intended dataset family, title, period, and claim strength.",
     ]
     return EvidenceRecord(
@@ -56,7 +56,7 @@ def seed_record(
         evidence_type=evidence_type,
         provenance_note=(
             "Transparent curated fallback record. It sketches the intended evidence shape and must be replaced or "
-            "confirmed with live Shanghai Library records for formal competition submission."
+            "confirmed with live Shanghai Library records before use."
         ),
         time_span=date,
         geo=geo or {},
@@ -699,7 +699,7 @@ SAMPLE_RECORDS.extend(
         seed_record(
             record_id="demo-community-curation-054",
             title="社区共创、线索征集与公共历史工作流",
-            snippet="公众上传的姓名、旧地址、照片说明和问题可以进入线索池，再由系统生成检索计划、证据卡和待复核清单，适合作为竞赛创新展示。",
+            snippet="公众上传的姓名、旧地址、照片说明和问题可以进入线索池，再由系统生成检索计划、证据卡和待复核清单，可用于公开历史研究体验。",
             dataset="demo_seed:community_workflow",
             date="方法型记录",
             topics=["社区共创", "线索征集", "旧照片", "旧地址", "待复核清单", "公共历史"],
