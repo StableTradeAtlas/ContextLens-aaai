@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 12
     env:
-      CONTEXTLENS_RUNTIME_DIR: ${{ runner.temp }}/contextlens
+      CONTEXTLENS_RUNTIME_DIR: /tmp/contextlens-ci
       CONTEXTLENS_USE_LIVE_API: "0"
       CONTEXTLENS_USE_DEEPSEEK: "0"
     steps:
